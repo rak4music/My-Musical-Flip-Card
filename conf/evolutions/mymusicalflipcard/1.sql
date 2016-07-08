@@ -4,12 +4,12 @@
 
 CREATE TABLE public.songs
 (
-  id bigint NOT NULL,
-  title text,
-  author text,
+  id SERIAL,
+  title VARCHAR(80),
+  author VARCHAR(80),
   timing_upper integer,
   timing_lower integer,
-  key text,
+  key VARCHAR(25),
   CONSTRAINT songs_pkey PRIMARY KEY (id)
 )
 WITH (
