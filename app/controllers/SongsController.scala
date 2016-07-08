@@ -1,10 +1,17 @@
 package controllers
 
+import javax.inject.Inject
+
 import models.{Phrase, Song, Timing}
 import play.api.libs.json.Json
 import play.api.mvc.{Action, Controller}
+import anorm._
+import play.api.db.DBApi
 
-class SongsController extends Controller {
+class SongsController @Inject() (dbApi: DBApi) extends Controller {
+
+  implicit private val db = dbApi.database("mymusicalflipcard")
+
   private val songs: List[Song] = List(Song("1", "Over Now", "Alice in Chains", Timing(4,4), "F# Major", List()),
                                        Song("2", "Billy Jean", "Michael Jackson", Timing(4,4), "F# Minor", List()))
 
@@ -23,6 +30,12 @@ class SongsController extends Controller {
   }
 
   def list() = Action {
-    Ok(Json.toJson(songs))
+    db.withConnection { implicit c =>
+      val query = SQL("select * from test")().map { row =>
+        row[String]("foo")
+      }
+      Ok(query(0) + ", " + query(1))
+    }
+    //Ok(Json.toJson(songs))
   }
 }

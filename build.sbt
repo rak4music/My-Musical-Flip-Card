@@ -7,9 +7,11 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.11.6"
 
 libraryDependencies ++= Seq(
-  javaJdbc,
+  jdbc,
   cache,
-  javaWs
+  javaWs,
+  "com.typesafe.play" %% "anorm" % "2.5.0",
+  "org.postgresql" % "postgresql" % "9.4.1208.jre7"
 )
 
 // Play provides two styles of routers, one expects its actions to be injected, the
