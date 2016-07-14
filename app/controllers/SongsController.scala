@@ -1,7 +1,7 @@
 package controllers
 
 import javax.inject.Inject
-
+import views.html.songs
 import anorm._
 import play.api.db.DBApi
 import play.api.libs.json.Json
@@ -10,6 +10,10 @@ import play.api.mvc.{Action, Controller, RequestHeader}
 class SongsController @Inject() (dbApi: DBApi) extends Controller {
 
   implicit private val db = dbApi.database("mymusicalflipcard")
+  
+  def view() = Action {
+    Ok(views.html.songs.render())
+  }
 
   def show(id: Int) = Action {
     db.withConnection { implicit c =>
@@ -17,7 +21,7 @@ class SongsController @Inject() (dbApi: DBApi) extends Controller {
         rowToSong(row)
       }
       if(songs.size > 0) {
-        Ok(Json.toJson(songs(0)))
+        Ok(Json.prettyPrint(songs(0)))
       }else{
         NotFound("Song doesn't exist")
       }
@@ -26,10 +30,10 @@ class SongsController @Inject() (dbApi: DBApi) extends Controller {
 
   def list() = Action { implicit request =>
     db.withConnection { implicit c =>
-      val songs = SQL("select * from songs")().map { row =>
+      val songs = Json.arr(SQL("select * from songs")().map { row =>
         rowToSongRefererence(row)
-      }
-      Ok(Json.toJson(songs))
+      })
+      Ok(Json.prettyPrint(songs))
     }
   }
   private def rowToSong(row: Row) = {

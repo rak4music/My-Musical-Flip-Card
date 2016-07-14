@@ -4,6 +4,7 @@
 
 # Home page
 GET     /songs                      controllers.SongsController.list()
+GET     /                 controllers.SongsController.view()
 GET     /songs/:id                  controllers.SongsController.show(id: Int)
 
 # Map static resources from the /public folder to the /assets URL path
