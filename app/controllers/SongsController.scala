@@ -5,14 +5,14 @@ import views.html.songs
 import anorm._
 import play.api.db.DBApi
 import play.api.libs.json.Json
-import play.api.mvc.{Action, Controller, RequestHeader}
+import play.api.mvc.{Action, Controller, RequestHeader,Request, AnyContent}
 
 class SongsController @Inject() (dbApi: DBApi) extends Controller {
 
   implicit private val db = dbApi.database("mymusicalflipcard")
   
-  def view() = Action {
-    Ok(views.html.songs.render())
+  def view() = Action { implicit request =>
+    Ok(views.html.songs.render(createSongListJson().toString))
   }
 
   def show(id: Int) = Action {
@@ -21,7 +21,7 @@ class SongsController @Inject() (dbApi: DBApi) extends Controller {
         rowToSong(row)
       }
       if(songs.size > 0) {
-        Ok(Json.prettyPrint(songs(0)))
+        Ok(Json.toJson(songs(0)))
       }else{
         NotFound("Song doesn't exist")
       }
@@ -29,13 +29,18 @@ class SongsController @Inject() (dbApi: DBApi) extends Controller {
   }
 
   def list() = Action { implicit request =>
+    Ok(createSongListJson())
+  }
+
+  def createSongListJson()(implicit request: Request[AnyContent]) = {
     db.withConnection { implicit c =>
       val songs = Json.arr(SQL("select * from songs")().map { row =>
         rowToSongRefererence(row)
       })
-      Ok(Json.prettyPrint(songs))
+      Json.toJson(songs)
     }
   }
+
   private def rowToSong(row: Row) = {
     Json.obj(
       "id" -> row[Int]("id"),

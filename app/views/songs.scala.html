@@ -1,4 +1,5 @@
-<!-- index.html -->
+@(json:String)
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,17 +14,19 @@
     <div id="content">
     </div>
     <script type="text/babel">
-    var CommentBox = React.createClass({
+    var SongList = React.createClass({
       render: function() {
+        var songs = @Html(json)[0];
+        var songItems = songs.map(function(song){
+          return <li>{song.title}</li>
+        });
         return (
-          <div className="commentBox">
-            Hello, world! I am a CommentBox.
-          </div>
+          <ul>{songItems}</ul>
         );
       }
     });
     ReactDOM.render(
-      <CommentBox />,
+      <SongList />,
       document.getElementById('content')
     ); 
     </script>
