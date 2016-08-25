@@ -16,15 +16,16 @@
         margin:0px;
       }
       #songList {
-        border: solid 1px #000;
         display: inline-block;
         list-style: none;
         padding: 8px;
         margin: 0px;
-        width:200px;
-        position:absolute;
-        bottom:0px;
-        top:0px;
+        width: 200px;
+        position: absolute;
+        bottom: 8px;
+        top: 8px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 0px 2px 0 rgba(0, 0, 0, 0.19);
+        left: 8px;
       }
       #songList > li:hover {
         background-color: #ffcc00;
@@ -35,14 +36,32 @@
     <div id="content">
     </div>
     <script type="text/babel">
+    class Song extends React.Component {
+      constructor() {
+        super();
+        this.state = {
+          selected: false
+        }
+        this.handleClick = this.handleClick.bind(this);
+      }
+
+      handleClick() {
+        this.setState({selected: true});
+      }
+
+      render () {
+        return <li className={this.state.selected ? "selected":""}>{this.props.song.title}</li>
+      }
+    }
     var SongList = React.createClass({
       render: function() {
         var songs = @Html(json)[0];
-        var songItems = songs.map(function(song){
-          return <li>{song.title}</li>
-        });
         return (
-          <ul id="songList">{songItems}</ul>
+          <ul id="songList">
+            {songs.map(function(song){
+              return <Song key={song.id} song={song} />
+            })}
+          </ul>
         );
       }
     });
