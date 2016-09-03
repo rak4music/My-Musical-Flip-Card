@@ -21,7 +21,7 @@ class SongController @Inject()(dbApi: DBApi) extends Controller {
       val lines = SQL("select * from lines where song_id = {id}").on("id"->id)().map { row =>
         rowToLine(row)
       }
-      Ok(lines)
+      Ok(Json.toJson(lines))
     }
   }
 }
