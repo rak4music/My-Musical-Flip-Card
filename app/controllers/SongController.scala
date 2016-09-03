@@ -18,7 +18,7 @@ class SongController @Inject()(dbApi: DBApi) extends Controller {
 
   def lines(id: Int) = Action {
     db.withConnection{implicit c =>
-      val lines = SQL("select * from lines where song_id = {id}").on("id"->id).map{ row =>
+      val lines = SQL("select * from lines where song_id = {id}").on("id"->id)().map { row =>
         rowToLine(row)
       }
       Ok(lines)
