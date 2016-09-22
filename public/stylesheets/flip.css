@@ -3,7 +3,6 @@ body {
     margin:0px;
 }
 #songList {
-    display: inline-block;
     list-style: none;
     padding: 8px;
     margin: 0px;
@@ -16,4 +15,14 @@ body {
 }
 #songList > li:hover {
     background-color: #ffcc00;
+}
+#songDetailContainer{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 0px 2px 0 rgba(0, 0, 0, 0.19);
+    position:absolute;
+    left: 232px;
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    padding: 8px;
+    margin: 0px;
 }

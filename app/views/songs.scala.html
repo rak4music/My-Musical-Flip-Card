@@ -14,8 +14,11 @@
     <script type="text/javascript">
         function init() {
             var content = document.getElementById("content");
+            var songDetailContainer = document.createElement("div");
+            songDetailContainer.setAttribute("id", "songDetailContainer");
             var songList = new SongList(@Html(json)[0]);
             content.appendChild(songList.render());
+            content.appendChild(songDetailContainer);
         }
         window.addEventListener("load", function() {
             init();
