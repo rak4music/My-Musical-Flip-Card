@@ -1,9 +1,6 @@
-/**
- * Created by rdettelback on 9/14/16.
- */
-class Song extends React.Component {
-    constructor() {
-        super();
+class Song {
+    constructor(song) {
+        this.song = song;
         this.state = {
             selected: false
         }
@@ -15,6 +12,9 @@ class Song extends React.Component {
     }
 
     render () {
-        return <li className={this.state.selected ? "selected":""}>{this.props.song.title}</li>
+        var song = document.createElement("li");
+        song.setAttribute("className", this.state.selected ? "selected":"");
+        song.innerHTML = this.song.title;
+        return song;
     }
 }
