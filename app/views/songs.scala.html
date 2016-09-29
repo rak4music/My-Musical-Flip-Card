@@ -4,8 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <title>Flip</title>
+    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/system/event_bus.js")"></script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/songlist/song.js")"></script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/songlist/songlist.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/songdetails/songdetail.js")"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
     <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/flip.css")"/>
   </head>
@@ -20,9 +22,17 @@
             content.appendChild(songList.render());
             content.appendChild(songDetailContainer);
         }
+
+        function handleViewSong(event) {
+            console.log("Handling event");
+            new SongDetail(event.song, songDetailContainer).render();
+        }
+
         window.addEventListener("load", function() {
             init();
         });
+        window.eventBus = new EventBus();
+        window.eventBus.addEventListener(EventType.VIEW_SONG, handleViewSong);
     </script>
   </body>
 </html>

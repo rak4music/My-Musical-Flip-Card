@@ -8,7 +8,9 @@ class Song {
     }
 
     handleClick() {
-        alert("Hello");
+        var event = new Event(EventType.VIEW_SONG);
+        event.song = this.song;
+        window.eventBus.dispatchEvent(event);
     }
 
     render () {
