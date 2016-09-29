@@ -8,11 +8,12 @@ class Song {
     }
 
     handleClick() {
-        this.setState({selected: true});
+        alert("Hello");
     }
 
     render () {
         var song = document.createElement("li");
+        song.addEventListener("click",this.handleClick);
         song.setAttribute("className", this.state.selected ? "selected":"");
         song.innerHTML = this.song.title;
         return song;
