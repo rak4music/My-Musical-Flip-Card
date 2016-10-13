@@ -2,16 +2,16 @@ class SongDetail {
     constructor(song, contentPane) {
         this.song = song;
         this.contentPane = contentPane;
-        this.sampleSong = eval('({"id":1,"title":"Bertha","author":"The Grateful Dead","timing":{"upper":4,"lower":4},"key":"C","phrases":[{"note":"C","lyric":"I had a hard run","bars":1},{"bars":2},{"note":"C","lyric":"runnin\' from your","bars":.75},{"note":"G C/G","lyric":"window","bars":.25},{"bars":3},{"lyric":"I was all night running, running, running","note":"C","bars":2},{"bars":1},{"lyric":"I wonder if you care?","note":"G C/G","bars":1}]})');
+        //TODO:  Remove this once the back-end has support for the shape of model that we want
+        this.song = eval('({"id":1,"duration":"42", "title":"Bertha","author":"The Grateful Dead","timing":{"upper":4,"lower":4},"key":"C","phrases":[{"bars":"1", "note":"G C/G", "repeat":1, "lyric":"[Intro]"}, {"bars":"1", "note":"G C/G", "repeat":8,},{"note":"C","lyric":"I had a hard run","bars":1},{"bars":1},{"note":"C","lyric":"runnin\' from your","bars":.75},{"note":"G C/G","lyric":"window","bars":.25},{"bars":1},{"lyric":"I was all night running, running, running","note":"C","bars":1.75},{"lyric":"Lord, I wonder if you care?","note":"G C/G","bars":1}]})');
         this.onClickStart = this.onClickStart.bind(this);
-        this.intervalId = NaN;
     }
 
     render () {
         this.reset();
         var songDetail = document.createElement("div");
         songDetail.setAttribute("id","songDetail");
-        this.renderSong(this.sampleSong, songDetail);
+        this.renderSong(this.song, songDetail);
         this.contentPane.appendChild(songDetail);
 
         var button = document.createElement("button");
@@ -21,20 +21,15 @@ class SongDetail {
         this.contentPane.appendChild(button);
     }
 
-    onClickStart(event) {
+    onClickStart() {
         this.play();
     }
 
     play() {
-        var intervalId = setInterval(function() {
-            var songDetail = document.getElementById("songDetail");
-            var tempo = 50;
-            songDetail.style.left = (songDetail.offsetLeft - tempo) + "px";
-            console.log("moving");
-            if(songDetail.offsetWidth + songDetail.offsetLeft < 0) {
-                clearInterval(intervalId);
-            }
-        }, 100);
+        songDetail.style.transitionProperty = "left";
+        songDetail.style.transitionDuration = this.song.duration + "s";
+        songDetail.style.transitionTimingFunction = "linear";
+        songDetail.style.left = -songDetail.offsetWidth + "px";
     }
 
     reset() {
@@ -45,7 +40,15 @@ class SongDetail {
 
     renderSong(song, container) {
         for(var i=0;i<song.phrases.length;i++) {
-            new Phrase(song.phrases[i], container).render();
+            var phrase = song.phrases[i];
+            var phraseView = new Phrase(phrase, container);
+            phraseView.render();
+            if(phrase.repeat) {
+                //We start at 1 instead of 0 because we've already rendered 1 phrase already before the if statement
+                for(var j=1;j<phrase.repeat;j++) {
+                    phraseView.render();
+                }
+            }
         }
     }
 }
@@ -68,12 +71,12 @@ class Phrase {
             view.appendChild(noteView);
         }
 
+        var phraseView = document.createElement("div");
+        phraseView.setAttribute("class","phrase");
         if(this.phrase.lyric) {
-            var phraseView = document.createElement("div");
-            phraseView.setAttribute("class","phrase");
             phraseView.innerHTML = this.phrase.lyric;
-            view.appendChild(phraseView);
         }
+        view.appendChild(phraseView);
         this.container.appendChild(view);
     }
 }

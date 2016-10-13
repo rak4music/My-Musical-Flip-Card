@@ -44,9 +44,11 @@ body {
 .phrase {
     display: inline-block;
     font-size:32pt;
+    height:50px;
 }
 #songDetail {
     white-space: nowrap;
     position:absolute;
     left:0px;
+    transition-property: left;
 }
