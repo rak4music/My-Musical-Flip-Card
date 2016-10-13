@@ -1,6 +1,13 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin:0px;
+    overflow:hidden;
+}
+#startButton {
+    position:absolute;
+    top:100px;
+    margin-top:40px;
+    font-size:24pt;
 }
 #songList {
     list-style: none;
@@ -25,4 +32,21 @@ body {
     bottom: 8px;
     padding: 8px;
     margin: 0px;
+    overflow: hidden;
+}
+.phraseContainer {
+    display:inline-block;
+}
+.note {
+    font-size:24pt;
+    color:#C0A;
+}
+.phrase {
+    display: inline-block;
+    font-size:32pt;
+}
+#songDetail {
+    white-space: nowrap;
+    position:absolute;
+    left:0px;
 }
