@@ -4,10 +4,12 @@ body {
     overflow:hidden;
 }
 #startButton {
+    font-size:18pt;
+}
+#controlsContainer {
     position:absolute;
     top:100px;
     margin-top:40px;
-    font-size:24pt;
 }
 #songList {
     list-style: none;

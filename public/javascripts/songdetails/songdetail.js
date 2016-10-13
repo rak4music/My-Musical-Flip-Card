@@ -5,6 +5,7 @@ class SongDetail {
         //TODO:  Remove this once the back-end has support for the shape of model that we want
         this.song = eval('({"id":1,"duration":"42", "title":"Bertha","author":"The Grateful Dead","timing":{"upper":4,"lower":4},"key":"C","phrases":[{"bars":"1", "note":"G C/G", "repeat":1, "lyric":"[Intro]"}, {"bars":"1", "note":"G C/G", "repeat":8,},{"note":"C","lyric":"I had a hard run","bars":1},{"bars":1},{"note":"C","lyric":"runnin\' from your","bars":.75},{"note":"G C/G","lyric":"window","bars":.25},{"bars":1},{"lyric":"I was all night running, running, running","note":"C","bars":1.75},{"lyric":"Lord, I wonder if you care?","note":"G C/G","bars":1}]})');
         this.onClickStart = this.onClickStart.bind(this);
+        this.totalBars = 0;
     }
 
     render () {
@@ -14,15 +15,31 @@ class SongDetail {
         this.renderSong(this.song, songDetail);
         this.contentPane.appendChild(songDetail);
 
+        var controlsContainer = document.createElement("div");
+        controlsContainer.setAttribute("id", "controlsContainer");
+
         var button = document.createElement("button");
         button.innerHTML = "Start";
         button.addEventListener("click", this.onClickStart);
         button.setAttribute("id","startButton");
-        this.contentPane.appendChild(button);
+        controlsContainer.appendChild(button);
+
+        var checkbox = document.createElement("input");
+        checkbox.setAttribute("type", "checkbox");
+        checkbox.setAttribute("id", "metronomeCheckbox");
+        controlsContainer.appendChild(checkbox);
+
+        var label = document.createElement("label");
+        label.setAttribute("for", "metronomeCheckbox");
+        label.innerHTML = "Metronome";
+        controlsContainer.appendChild(label);
+
+        this.contentPane.appendChild(controlsContainer);
     }
 
     onClickStart() {
         this.play();
+        this.startMetronome();
     }
 
     play() {
@@ -30,6 +47,21 @@ class SongDetail {
         songDetail.style.transitionDuration = this.song.duration + "s";
         songDetail.style.transitionTimingFunction = "linear";
         songDetail.style.left = -songDetail.offsetWidth + "px";
+    }
+
+    startMetronome() {
+        var metronomeCheckbox = document.getElementById("metronomeCheckbox");
+        if(document.querySelector("#metronomeCheckbox").checked) {
+            var beatsPerBar = this.song.timing.lower;
+            var totalBeats = beatsPerBar * this.totalBars
+            var bpm = totalBeats / this.song.duration;
+            var metronome = document.getElementById("metronome");
+            metronome.playbackRate = bpm;
+            metronome.play();
+            setTimeout(function() {
+                metronome.pause();
+            }, this.song.duration * 1000);
+        }
     }
 
     reset() {
@@ -41,9 +73,11 @@ class SongDetail {
     renderSong(song, container) {
         for(var i=0;i<song.phrases.length;i++) {
             var phrase = song.phrases[i];
+            this.totalBars += parseInt(phrase.bars);
             var phraseView = new Phrase(phrase, container);
             phraseView.render();
             if(phrase.repeat) {
+                this.totalBars += parseInt(phrase.bars);
                 //We start at 1 instead of 0 because we've already rendered 1 phrase already before the if statement
                 for(var j=1;j<phrase.repeat;j++) {
                     phraseView.render();
