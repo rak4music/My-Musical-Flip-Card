@@ -5,6 +5,7 @@ class SongDetail {
         //TODO:  Remove this once the back-end has support for the shape of model that we want
         this.song = eval('({"id":1,"duration":"42", "title":"Bertha","author":"The Grateful Dead","timing":{"upper":4,"lower":4},"key":"C","phrases":[{"bars":"1", "note":"G C/G", "repeat":1, "lyric":"[Intro]"}, {"bars":"1", "note":"G C/G", "repeat":8,},{"note":"C","lyric":"I had a hard run","bars":1},{"bars":1},{"note":"C","lyric":"runnin\' from your","bars":.75},{"note":"G C/G","lyric":"window","bars":.25},{"bars":1},{"lyric":"I was all night running, running, running","note":"C","bars":1.75},{"lyric":"Lord, I wonder if you care?","note":"G C/G","bars":1}]})');
         this.onClickStart = this.onClickStart.bind(this);
+        this.onClickPause = this.onClickPause.bind(this);
         this.totalBars = 0;
     }
 
@@ -18,21 +19,34 @@ class SongDetail {
         var controlsContainer = document.createElement("div");
         controlsContainer.setAttribute("id", "controlsContainer");
 
-        var button = document.createElement("button");
-        button.innerHTML = "Start";
-        button.addEventListener("click", this.onClickStart);
-        button.setAttribute("id","startButton");
-        controlsContainer.appendChild(button);
+        var startButton = document.createElement("button");
+        startButton.innerHTML = "Start";
+        startButton.addEventListener("click", this.onClickStart);
+        startButton.setAttribute("id","startButton");
+        startButton.classList.add("runControlButton");
+        controlsContainer.appendChild(startButton);
+
+        var pauseButton = document.createElement("button");
+        pauseButton.innerHTML = "Pause";
+        pauseButton.addEventListener("click", this.onClickPause);
+        pauseButton.setAttribute("id","pauseButton");
+        pauseButton.classList.add("runControlButton");
+        pauseButton.classList.add("hidden");
+        controlsContainer.appendChild(pauseButton);
+
+        var checkboxContainer = document.createElement("span");
+        checkboxContainer.setAttribute("id","metronomeContainer");
 
         var checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute("id", "metronomeCheckbox");
-        controlsContainer.appendChild(checkbox);
+        checkboxContainer.appendChild(checkbox);
 
         var label = document.createElement("label");
         label.setAttribute("for", "metronomeCheckbox");
         label.innerHTML = "Metronome";
-        controlsContainer.appendChild(label);
+        checkboxContainer.appendChild(label);
+        controlsContainer.appendChild(checkboxContainer);
 
         this.contentPane.appendChild(controlsContainer);
     }
@@ -42,11 +56,20 @@ class SongDetail {
         this.startMetronome();
     }
 
+    onClickPause() {
+        this.pause();
+        this.pauseMetronome();
+    }
+
     play() {
-        songDetail.style.transitionProperty = "left";
         songDetail.style.transitionDuration = this.song.duration + "s";
-        songDetail.style.transitionTimingFunction = "linear";
         songDetail.style.left = -songDetail.offsetWidth + "px";
+        songDetail.classList.add("slider");
+        var pauseButton = document.getElementById("pauseButton");
+        pauseButton.classList.remove("hidden");
+        var startButton = document.getElementById("startButton");
+        startButton.classList.add("hidden");
+
     }
 
     startMetronome() {
@@ -58,10 +81,23 @@ class SongDetail {
             var metronome = document.getElementById("metronome");
             metronome.playbackRate = bpm;
             metronome.play();
-            setTimeout(function() {
+            this.metronomeAutoStopIntervalId = setTimeout(function() {
                 metronome.pause();
             }, this.song.duration * 1000);
         }
+    }
+
+    pause() {
+        var songDetail = document.getElementById("songDetail");
+        var computedStyle = window.getComputedStyle(songDetail);
+        songDetail.classList.remove("slider");
+        songDetail.style.left = computedStyle.getPropertyValue("left");
+    }
+
+    pauseMetronome() {
+        var metronome = document.getElementById("metronome");
+        metronome.pause();
+        clearInterval(this.metronomeAutoStopIntervalId);
     }
 
     reset() {

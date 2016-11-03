@@ -22,9 +22,7 @@ class SongsController @Inject() (dbApi: DBApi) extends Controller {
       }
       if(songs.size > 0) {
         Ok(Json.toJson(songs(0)))
-      }else{
-        NotFound("Song doesn't exist")
-      }
+      }else NotFound("Song doesn't exist")
     }
   }
 

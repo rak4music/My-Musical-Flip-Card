@@ -3,8 +3,16 @@ body {
     margin:0px;
     overflow:hidden;
 }
-#startButton {
+.runControlButton {
     font-size:18pt;
+    width:100px;
+    position:absolute;
+}
+#metronomeContainer {
+    position:absolute;
+    left:100px;
+    white-space:nowrap;
+    top:25%;
 }
 #controlsContainer {
     position:absolute;
@@ -52,5 +60,11 @@ body {
     white-space: nowrap;
     position:absolute;
     left:0px;
-    transition-property: left;
+}
+.slider {
+    transition-property: "left";
+    transition-timing-function: "linear";
+}
+.hidden {
+     visibility: hidden;
 }
