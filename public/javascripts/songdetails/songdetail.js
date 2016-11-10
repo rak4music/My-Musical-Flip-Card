@@ -54,6 +54,7 @@ class SongDetail {
     onClickStart() {
         this.play();
         this.startMetronome();
+        document.getElementById("startButton").innerHTML="Resume"
     }
 
     onClickPause() {
