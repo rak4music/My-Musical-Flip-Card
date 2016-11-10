@@ -9,15 +9,12 @@ body {
     position:absolute;
 }
 #metronomeContainer {
-    position:absolute;
-    left:100px;
+    margin-left:100px;
     white-space:nowrap;
     top:25%;
 }
 #controlsContainer {
-    position:absolute;
-    top:100px;
-    margin-top:40px;
+    margin-top:140px;
 }
 #songList {
     list-style: none;

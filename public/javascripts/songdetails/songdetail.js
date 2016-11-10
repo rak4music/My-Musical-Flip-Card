@@ -92,6 +92,10 @@ class SongDetail {
         var computedStyle = window.getComputedStyle(songDetail);
         songDetail.classList.remove("slider");
         songDetail.style.left = computedStyle.getPropertyValue("left");
+        var startButton = document.getElementById("startButton");
+        startButton.classList.remove("hidden");
+        var pauseButton = document.getElementById("pauseButton");
+        pauseButton.classList.add("hidden");
     }
 
     pauseMetronome() {
