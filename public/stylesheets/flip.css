@@ -11,7 +11,8 @@ body {
 #metronomeContainer {
     margin-left:100px;
     white-space:nowrap;
-    top:25%;
+    top:8px;
+    position:relative;
 }
 #controlsContainer {
     margin-top:140px;
