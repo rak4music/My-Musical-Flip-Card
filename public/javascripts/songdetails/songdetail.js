@@ -71,7 +71,7 @@ class SongDetail {
     }
 
     onClickRestart() {
-
+        this.restart();
     }
 
     play() {
@@ -82,6 +82,14 @@ class SongDetail {
         pauseButton.classList.remove("hidden");
         var startButton = document.getElementById("startButton");
         startButton.classList.add("hidden");
+
+    }
+
+    restart() {
+        songDetail.style.transitionDuration = 0 + "s";
+        songDetail.classList.remove("slider");
+        songDetail.style.left = 0 + "px";
+        this.stopMetronome();
 
     }
 
@@ -115,6 +123,11 @@ class SongDetail {
         var metronome = document.getElementById("metronome");
         metronome.pause();
         clearInterval(this.metronomeAutoStopIntervalId);
+    }
+
+    stopMetronome() {
+        this.pauseMetronome();
+        document.getElementById("metronome").currentTime=0;
     }
 
     reset() {
