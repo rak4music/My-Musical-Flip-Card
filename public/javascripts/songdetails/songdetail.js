@@ -6,6 +6,7 @@ class SongDetail {
         this.song = eval('({"id":1,"duration":"42", "title":"Bertha","author":"The Grateful Dead","timing":{"upper":4,"lower":4},"key":"C","phrases":[{"bars":"1", "note":"G C/G", "repeat":1, "lyric":"[Intro]"}, {"bars":"1", "note":"G C/G", "repeat":8,},{"note":"C","lyric":"I had a hard run","bars":1},{"bars":1},{"note":"C","lyric":"runnin\' from your","bars":.75},{"note":"G C/G","lyric":"window","bars":.25},{"bars":1},{"lyric":"I was all night running, running, running","note":"C","bars":1.75},{"lyric":"Lord, I wonder if you care?","note":"G C/G","bars":1}]})');
         this.onClickStart = this.onClickStart.bind(this);
         this.onClickPause = this.onClickPause.bind(this);
+        this.onClickRestart = this.onClickRestart.bind(this);
         this.totalBars = 0;
     }
 
@@ -34,6 +35,13 @@ class SongDetail {
         pauseButton.classList.add("hidden");
         controlsContainer.appendChild(pauseButton);
 
+        var restartButton = document.createElement("button");
+        restartButton.innerHTML = "Restart";
+        restartButton.addEventListener("click", this.onClickRestart);
+        restartButton.setAttribute("id","restartButton");
+        restartButton.classList.add("runControlButton");
+        controlsContainer.appendChild(restartButton);
+
         var checkboxContainer = document.createElement("span");
         checkboxContainer.setAttribute("id","metronomeContainer");
 
@@ -60,6 +68,10 @@ class SongDetail {
     onClickPause() {
         this.pause();
         this.pauseMetronome();
+    }
+
+    onClickRestart() {
+
     }
 
     play() {

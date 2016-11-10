@@ -6,12 +6,11 @@ body {
 .runControlButton {
     font-size:18pt;
     width:100px;
-    position:absolute;
+    margin:4px;
 }
 #metronomeContainer {
-    margin-left:100px;
     white-space:nowrap;
-    top:8px;
+    top:-3px;
     position:relative;
 }
 #controlsContainer {
@@ -64,5 +63,5 @@ body {
     transition-timing-function: "linear";
 }
 .hidden {
-     visibility: hidden;
+     display:none;
 }
