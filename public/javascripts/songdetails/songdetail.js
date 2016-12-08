@@ -25,6 +25,7 @@ class SongDetail {
 
         var startButton = document.createElement("button");
         startButton.innerHTML = "Start";
+        startButton.classList.add("material");
         startButton.addEventListener("click", this.onClickStart);
         startButton.setAttribute("id","startButton");
         startButton.classList.add("runControlButton");
@@ -32,6 +33,7 @@ class SongDetail {
 
         var pauseButton = document.createElement("button");
         pauseButton.innerHTML = "Pause";
+        pauseButton.classList.add("material");
         pauseButton.addEventListener("click", this.onClickPause);
         pauseButton.setAttribute("id","pauseButton");
         pauseButton.classList.add("runControlButton");
@@ -40,6 +42,7 @@ class SongDetail {
 
         var restartButton = document.createElement("button");
         restartButton.innerHTML = "Restart";
+        restartButton.classList.add("material");
         restartButton.addEventListener("click", this.onClickRestart);
         restartButton.setAttribute("id","restartButton");
         restartButton.classList.add("runControlButton");

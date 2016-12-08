@@ -7,6 +7,12 @@ body {
     font-size:18pt;
     width:100px;
     margin:4px;
+    background-color:#21A45C;
+    color:#fff;
+    border:0px;
+}
+.material {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 0px 2px 0 rgba(0, 0, 0, 0.19);
 }
 #metronomeContainer {
     white-space:nowrap;
@@ -24,14 +30,12 @@ body {
     position: absolute;
     bottom: 8px;
     top: 8px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 0px 2px 0 rgba(0, 0, 0, 0.19);
     left: 8px;
 }
 #songList > li:hover {
     background-color: #ffcc00;
 }
 #songDetailContainer{
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 0px 2px 0 rgba(0, 0, 0, 0.19);
     position:absolute;
     left: 232px;
     top: 8px;
@@ -46,7 +50,7 @@ body {
 }
 .note {
     font-size:24pt;
-    color:#C0A;
+    color:#21A45C;
 }
 .phrase {
     display: inline-block;
@@ -57,6 +61,7 @@ body {
     white-space: nowrap;
     position:absolute;
     left:0px;
+    padding-left:9px;
 }
 .slider {
     transition-property: "left";

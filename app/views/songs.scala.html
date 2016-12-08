@@ -19,6 +19,7 @@
             var content = document.getElementById("content");
             var songDetailContainer = document.createElement("div");
             songDetailContainer.setAttribute("id", "songDetailContainer");
+            songDetailContainer.classList.add("material");
             var songList = new SongList(@Html(json)[0]);
             content.appendChild(songList.render());
             content.appendChild(songDetailContainer);

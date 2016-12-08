@@ -5,6 +5,7 @@ class SongList {
     render() {
         var songList = document.createElement("ul");
         songList.setAttribute("id", "songList");
+        songList.classList.add("material");
         this.songs.map(function(song){
            songList.appendChild(new Song(song).render());
         });
