@@ -9,6 +9,8 @@ class SongDetail {
         this.onClickPause = this.onClickPause.bind(this);
         this.onClickRestart = this.onClickRestart.bind(this);
         this.totalBars = 0;
+        this.totalBeats = 0;
+        this.bpm = 0;
     }
 
     render () {
@@ -101,18 +103,22 @@ class SongDetail {
     startMetronome() {
         var metronomeCheckbox = document.getElementById("metronomeCheckbox");
         if(document.querySelector("#metronomeCheckbox").checked) {
-            var beatsPerBar = this.song.timing.lower;
-            var totalBeats = beatsPerBar * this.totalBars
-            var bpm = totalBeats / this.song.duration;
             var metronome = document.getElementById("metronome");
-            metronome.playbackRate = bpm;
+            metronome.playbackRate = this.bpm;
             metronome.play();
             this.metronomeAutoStopIntervalId = setTimeout(function() {
                 metronome.pause();
-            }, this.song.duration * 1000);
+            }, this.calculateRemainingDuration() * 1000);
         }
     }
-
+    calculateRemainingDuration() {
+        var duration = this.song.duration;
+        var computedStyle = window.getComputedStyle(songDetail);
+        var left = Math.abs(parseInt(computedStyle.getPropertyValue("left")));
+        var width = parseInt(computedStyle.getPropertyValue("width").replace("px",""));
+        var pct = left/width;
+        return duration * 1-pct;
+    }
     pause() {
         var songDetail = document.getElementById("songDetail");
         var computedStyle = window.getComputedStyle(songDetail);
@@ -156,6 +162,9 @@ class SongDetail {
                 }
             }
         }
+        var beatsPerBar = this.song.timing.lower;
+        this.totalBeats = beatsPerBar * this.totalBars;
+        this.bpm = this.totalBeats / this.song.duration;
     }
 }
 
