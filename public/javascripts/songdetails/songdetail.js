@@ -3,6 +3,7 @@ class SongDetail {
         this.song = song;
         this.contentPane = contentPane;
         //TODO:  Remove this once the back-end has support for the shape of model that we want
+        //this.song = eval('({"id":1,"duration":"42", "title":"Bertha","author":"The Grateful Dead","timing":{"upper":4,"lower":4},"key":"C","phrases":[{"bars":"1", "note":"G C/G", "repeat":1, "lyric":"[Intro]"}, {"bars":"1", "note":"G C/G", "repeat":8,},{"note":"C","lyric":"I had a hard run","bars":1},{"bars":1},{"note":"C","lyric":"runnin\' from your","bars":.75},{"note":"G C/G","lyric":"window","bars":.25},{"bars":1},{"lyric":"I was all night running, running, running","note":"C","bars":1.75},{"lyric":"Lord, I wonder if you care?","note":"G C/G","bars":1}]})');
         this.song = eval('({"id":1,"duration":"42", "title":"Bertha","author":"The Grateful Dead","timing":{"upper":4,"lower":4},"key":"C","phrases":[{"bars":"1", "note":"G C/G", "repeat":1, "lyric":"[Intro]"}, {"bars":"1", "note":"G C/G", "repeat":8,},{"note":"C","lyric":"I had a hard run","bars":1},{"bars":1},{"note":"C","lyric":"runnin\' from your","bars":.75},{"note":"G C/G","lyric":"window","bars":.25},{"bars":1},{"lyric":"I was all night running, running, running","note":"C","bars":1.75},{"lyric":"Lord, I wonder if you care?","note":"G C/G","bars":1}]})');
         this.onClickStart = this.onClickStart.bind(this);
         this.onClickPause = this.onClickPause.bind(this);
@@ -90,6 +91,10 @@ class SongDetail {
         songDetail.classList.remove("slider");
         songDetail.style.left = 0 + "px";
         this.stopMetronome();
+        startButton.innerHTML = "Start";
+        var pauseButton = document.getElementById("pauseButton");
+        pauseButton.classList.add("hidden")
+        startButton.classList.remove("hidden");
 
     }
 
@@ -117,6 +122,7 @@ class SongDetail {
         startButton.classList.remove("hidden");
         var pauseButton = document.getElementById("pauseButton");
         pauseButton.classList.add("hidden");
+
     }
 
     pauseMetronome() {
