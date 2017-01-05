@@ -1,23 +1,19 @@
-
-
 # --- !Ups
 
-CREATE TABLE public.songs
+CREATE TABLE public.scores
 (
   id SERIAL,
-  title VARCHAR(80),
-  author VARCHAR(80),
-  timing_upper integer,
-  timing_lower integer,
-  key VARCHAR(25),
-  CONSTRAINT songs_pkey PRIMARY KEY (id)
+  title character varying(80),
+  artist character varying(80),
+  file bytea,
+  CONSTRAINT scores_pkey PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE public.songs
+ALTER TABLE public.scores
   OWNER TO postgres;
 
 # --- !Downs
 
-DROP TABLE public.songs;
+DROP TABLE public.scores;

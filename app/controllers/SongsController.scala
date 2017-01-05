@@ -1,11 +1,11 @@
 package controllers
 
 import javax.inject.Inject
-import views.html.songs
+
 import anorm._
 import play.api.db.DBApi
 import play.api.libs.json.Json
-import play.api.mvc.{Action, Controller, RequestHeader,Request, AnyContent}
+import play.api.mvc._
 
 class SongsController @Inject() (dbApi: DBApi) extends Controller {
 
