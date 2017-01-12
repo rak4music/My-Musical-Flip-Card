@@ -41,6 +41,7 @@ class SongController @Inject()(dbApi: DBApi) extends Controller {
                                                                        'artist -> (json \ "artist").as[String],
                                                                        'file -> stream).executeUpdate()
       }
+      file.delete()
     }
     Ok("")
   }
