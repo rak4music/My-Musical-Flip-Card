@@ -16,11 +16,12 @@ class SongsController @Inject() (dbApi: DBApi) extends Controller {
 
   def show(id: Int) = Action {
     db.withConnection { implicit c =>
-      val songs = SQL("select * from songs where id = {id}").on("id" -> id)().map { row =>
-        rowToSong(row)
+      val songs = SQL("select * from songs where id = {id}").on("id" -> id)().map { song =>
+        val phrases = SQL("select * from phrases where song_id = {song_id}").on('song_id -> id)()
+        rowToSong(song, phrases)
       }
       if(songs.size > 0) {
-        Ok(Json.toJson(songs(0)))
+        Ok(Json.prettyPrint(songs(0)))
       }else NotFound("Song doesn't exist")
     }
   }
@@ -38,16 +39,26 @@ class SongsController @Inject() (dbApi: DBApi) extends Controller {
     }
   }
 
-  private def rowToSong(row: Row) = {
+  private def rowToSong(row: Row, phrases: Seq[Row]) = {
     Json.obj(
       "id" -> row[Int]("id"),
       "title" -> row[String]("title"),
-      "author" -> row[String]("author"),
+      "artist" -> row[String]("artist"),
       "timing" -> Json.obj(
         "upper"-> row[Int]("timing_upper"),
         "lower" -> row[Int]("timing_lower")
       ),
-      "key" -> row[String]("key")
+      "key" -> row[String]("key"),
+      "duration" -> row[Double]("duration"),
+      "phrases" -> phrases.map {phrase =>
+        Json.obj(
+          "id" -> phrase[Int]("id"),
+          "bars" -> phrase[Option[Double]]("bars"),
+          "note" -> phrase[Option[String]]("note"),
+          "repeat" -> phrase[Option[Int]]("repeat"),
+          "lyric" -> phrase[Option[String]]("lyric")
+        )
+      }
     )
   }
   private def rowToSongRefererence(row: Row)(implicit request: RequestHeader) = {
