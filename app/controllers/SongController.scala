@@ -1,12 +1,8 @@
 package controllers
-import java.io.{File, FileInputStream}
-
 import anorm._
-import com.flip.model.ScoreBuilder
 import com.google.inject.Inject
-import jm.util.Write
 import play.api.db.DBApi
-import play.api.libs.json.Json
+import play.api.libs.json.{JsObject, Json}
 import play.api.mvc.{Action, Controller}
 
 class SongController @Inject()(dbApi: DBApi) extends Controller {
@@ -31,17 +27,16 @@ class SongController @Inject()(dbApi: DBApi) extends Controller {
 
   def create() = Action { request =>
     request.body.asJson.map { json =>
-      val score = new ScoreBuilder().build(json)
-      val fileName = (json \ "title").as[String] + ".jm"
-      Write.jm(score, fileName)
-      val file = new File(fileName)
-      val stream  = new FileInputStream(file)
+      val timing =  (json \ "timing").as[JsObject]
       db.withConnection { implicit c =>
-        SQL("insert into scores (title, artist, file) values({title}, {artist}, {file})").on('title -> score.getTitle,
-                                                                       'artist -> (json \ "artist").as[String],
-                                                                       'file -> stream).executeUpdate()
+        SQL("insert into songs (title, artist, timing_upper, timing_lower, key, duration) values({title}, {artist}, {timing_upper}, {timing_lower}, {key}, {duration})").on(
+          'title -> (json \ "title").as[String],
+          'artist -> (json \ "artist").as[String],
+          'timing_upper -> (timing \ "upper").as[Int],
+          'timing_lower -> (timing \ "lower").as[Int],
+          'key -> (json \ "key").as[String],
+          'duration -> (json \ "duration").as[Float]).executeUpdate()
       }
-      file.delete()
     }
     Ok("")
   }

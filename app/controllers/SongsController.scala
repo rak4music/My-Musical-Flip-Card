@@ -1,16 +1,11 @@
 package controllers
 
-import java.io.{FileInputStream, FileOutputStream}
 import javax.inject.Inject
 
 import anorm._
-import jm.util.Read
 import play.api.db.DBApi
 import play.api.libs.json.Json
 import play.api.mvc._
-import java.io.File
-
-import jm.music.data.Score
 class SongsController @Inject() (dbApi: DBApi) extends Controller {
 
   implicit private val db = dbApi.database("mymusicalflipcard")
@@ -21,8 +16,8 @@ class SongsController @Inject() (dbApi: DBApi) extends Controller {
 
   def show(id: Int) = Action {
     db.withConnection { implicit c =>
-      val songs = SQL("select * from scores where id = {id}").on("id" -> id)().map { row =>
-        scoreRowToSong(row)
+      val songs = SQL("select * from songs where id = {id}").on("id" -> id)().map { row =>
+        rowToSong(row)
       }
       if(songs.size > 0) {
         Ok(Json.toJson(songs(0)))
@@ -41,28 +36,6 @@ class SongsController @Inject() (dbApi: DBApi) extends Controller {
       })
       Json.toJson(songs)
     }
-  }
-
-  private def scoreRowToSong(row: Row) = {
-    val title = row[String]("title")
-    val artist = row[String]("artist")
-    val bytes = row[Array[Byte]]("file")
-    val file = new File(title)
-    val stream = new FileOutputStream(file)
-    stream.write(bytes)
-    val score = new Score()
-    Read.jm(score,title)
-    Json.obj(
-      "id" -> row[Int]("id"),
-      "title" -> title,
-      "artist" -> artist,
-      "timing" -> Json.obj(
-        "upper"-> score.getNumerator,
-        "lower" -> score.getDenominator
-      ),
-      "key" -> score.getKeySignature
-    )
-    file.delete()
   }
 
   private def rowToSong(row: Row) = {
