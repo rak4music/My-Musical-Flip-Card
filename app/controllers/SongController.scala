@@ -1,4 +1,6 @@
 package controllers
+import java.sql.Connection
+
 import play.api.libs.json.Reads._
 import play.api.libs.json._
 import anorm._
@@ -37,6 +39,28 @@ class SongController @Inject()(dbApi: DBApi) extends Controller {
       (JsPath \ "lyric").readNullable[String]
   )(Phrase.apply _)
 
+  def update(id:Int) = Action { request =>
+    request.body.asJson.foreach { json =>
+      val timing =  (json \ "timing").as[JsObject]
+      db.withConnection { implicit c =>
+        SQL("update songs set title={title}, artist={artist}, timing_upper={timing_upper}, timing_lower={timing_lower}, key={key}, duration={duration} where id={id}").on(
+          'title -> (json \ "title").as[String],
+          'artist -> (json \ "artist").as[String],
+          'timing_upper -> (timing \ "upper").as[Int],
+          'timing_lower -> (timing \ "lower").as[Int],
+          'key -> (json \ "key").as[String],
+          'duration -> (json \ "duration").as[Float],
+          'id -> id
+        ).executeUpdate()
+        SQL("delete from phrases where song_id={song_id}").on(
+          'song_id -> id
+        ).executeUpdate()
+        createPhrases(Some(id), json)
+      }
+    }
+    Ok("")
+  }
+
   def create() = Action { request =>
     request.body.asJson.foreach { json =>
       val timing =  (json \ "timing").as[JsObject]
@@ -50,22 +74,26 @@ class SongController @Inject()(dbApi: DBApi) extends Controller {
           'key -> (json \ "key").as[String],
           'duration -> (json \ "duration").as[Float]).executeInsert()
 
-        (json \ "phrases").as[JsArray].value.foreach { jsonPhrase =>
-          jsonPhrase.validate[Phrase](phraseReads) match {
-            case s: JsSuccess[Phrase] => {
-              val phrase = s.get
-              SQL("insert into phrases (song_id, bars, note, repeat, lyric) values({song_id}, {bars}, {note}, {repeat}, {lyric})").on(
-                'song_id -> newSongId,
-                'bars -> phrase.bars,
-                'note -> phrase.note,
-                'repeat -> phrase.repeat,
-                'lyric -> phrase.lyric).executeInsert()
-            }
-            case e: JsError => println(JsError.toJson(e).toString())
-          }
-        }
+        createPhrases(newSongId, json)
       }
     }
     Ok("")
+  }
+
+  def createPhrases(id:Option[Long],json:JsValue)(implicit c:Connection){
+    (json \ "phrases").as[JsArray].value.foreach { jsonPhrase =>
+      jsonPhrase.validate[Phrase](phraseReads) match {
+        case s: JsSuccess[Phrase] => {
+          val phrase = s.get
+          SQL("insert into phrases (song_id, bars, note, repeat, lyric) values({song_id}, {bars}, {note}, {repeat}, {lyric})").on(
+            'song_id -> id,
+            'bars -> phrase.bars,
+            'note -> phrase.note,
+            'repeat -> phrase.repeat,
+            'lyric -> phrase.lyric).executeInsert()
+        }
+        case e: JsError => println(JsError.toJson(e).toString())
+      }
+    }
   }
 }
