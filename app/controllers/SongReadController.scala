@@ -6,7 +6,7 @@ import anorm._
 import play.api.db.DBApi
 import play.api.libs.json.Json
 import play.api.mvc._
-class SongsController @Inject() (dbApi: DBApi) extends Controller {
+class SongReadController @Inject()(dbApi: DBApi) extends Controller {
 
   implicit private val db = dbApi.database("mymusicalflipcard")
   
@@ -23,6 +23,21 @@ class SongsController @Inject() (dbApi: DBApi) extends Controller {
       if(songs.size > 0) {
         Ok(Json.prettyPrint(songs(0)))
       }else NotFound("Song doesn't exist")
+    }
+  }
+
+  def rowToLine(row: Row) = {
+    Json.obj(
+      "id" -> row[Int]("id")
+    )
+  }
+
+  def lines(id: Int) = Action {
+    db.withConnection{implicit c =>
+      val lines = SQL("select * from lines where song_id = {id}").on("id"->id)().map { row =>
+        rowToLine(row)
+      }
+      Ok(Json.toJson(lines))
     }
   }
 
