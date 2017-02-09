@@ -79,4 +79,16 @@ class SongWriteController @Inject()(dbApi: DBApi) extends Controller {
       }
     }
   }
+
+  def delete(id: Int) = Action {
+    db.withConnection { implicit c =>
+      SQL("delete from songs where id = {id}").on(
+        'id -> id
+      ).executeUpdate()
+      SQL("delete from phrases where song_id = {id}").on(
+        'id -> id
+      ).executeUpdate()
+    }
+    Ok("")
+  }
 }
