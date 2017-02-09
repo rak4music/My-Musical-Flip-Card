@@ -64,8 +64,8 @@ body {
     padding-left:9px;
 }
 .slider {
-    transition-property: "left";
-    transition-timing-function: "linear";
+    transition-property: left;
+    transition-timing-function: linear;
 }
 .hidden {
      display:none;

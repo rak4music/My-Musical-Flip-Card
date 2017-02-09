@@ -81,7 +81,7 @@ class SongReadController @Inject()(dbApi: DBApi) extends Controller {
     Json.obj(
       "id" -> id,
       "title" -> row[String]("title"),
-      "href" -> routes.SongsController.show(id).absoluteURL()
+      "href" -> routes.SongReadController.show(id).absoluteURL()
     )
   }
 }

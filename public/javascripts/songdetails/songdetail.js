@@ -21,6 +21,7 @@ class SongDetail {
     }
 
     renderDetail(detail){
+        this.songDetail = detail;
         var songDetail = document.createElement("div");
         songDetail.setAttribute("id","songDetail");
         this.renderSong(detail, songDetail);
@@ -87,7 +88,8 @@ class SongDetail {
     }
 
     play() {
-        songDetail.style.transitionDuration = this.song.duration + "s";
+        var songDetail = document.getElementById("songDetail");
+        songDetail.style.transitionDuration = this.songDetail.duration + "s";
         songDetail.style.left = -songDetail.offsetWidth + "px";
         songDetail.classList.add("slider");
         var pauseButton = document.getElementById("pauseButton");
@@ -98,10 +100,12 @@ class SongDetail {
     }
 
     restart() {
+        var songDetail = document.getElementById("songDetail");
         songDetail.style.transitionDuration = 0 + "s";
         songDetail.classList.remove("slider");
         songDetail.style.left = 0 + "px";
         this.stopMetronome();
+        var startButton = document.getElementById("startButton");
         startButton.innerHTML = "Start";
         var pauseButton = document.getElementById("pauseButton");
         pauseButton.classList.add("hidden")
@@ -173,7 +177,7 @@ class SongDetail {
         }
         var beatsPerBar = song.timing.lower;
         this.totalBeats = beatsPerBar * this.totalBars;
-        this.bpm = this.totalBeats / this.song.duration;
+        this.bpm = this.totalBeats / song.duration;
     }
 }
 
