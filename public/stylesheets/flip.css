@@ -70,3 +70,6 @@ body {
 .hidden {
      display:none;
 }
+.addButton {
+    background-color:green;
+}
