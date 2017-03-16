@@ -8,6 +8,8 @@
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/songlist/song.js")"></script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/songlist/songlist.js")"></script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/songdetails/songdetail.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/songlist/createsong.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/songdetails/songeditor.js")"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
     <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/flip.css")"/>
   </head>
@@ -29,11 +31,18 @@
             new SongDetail(event.song, songDetailContainer).render();
         }
 
+        function handleCreateSong(event) {
+            new SongEditor(event.song, songDetailContainer).render();
+        }
         window.addEventListener("load", function() {
             init();
         });
         window.eventBus = new EventBus();
         window.eventBus.addEventListener(EventType.VIEW_SONG, handleViewSong);
+        window.eventBus.addEventListener(EventType.CREATE_SONG, handleCreateSong);
+
+
+
     </script>
   </body>
 </html>

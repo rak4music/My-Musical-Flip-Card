@@ -1,5 +1,6 @@
 const EventType = {
-    VIEW_SONG:"viewSong"
+    VIEW_SONG:"viewSong",
+    CREATE_SONG:"createSong"
 };
 
 class EventBus {

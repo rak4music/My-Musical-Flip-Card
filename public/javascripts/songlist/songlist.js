@@ -10,6 +10,9 @@ class SongList {
         addButton.innerHTML ="+";
         addButton.classList.add("addButton");
         addButton.classList.add("material");
+        addButton.addEventListener("click", function(){
+            songList.appendChild(new CreateSong().render());
+        });
         songList.appendChild(addButton);
         this.songs.map(function(song){
            songList.appendChild(new Song(song).render());
