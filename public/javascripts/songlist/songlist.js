@@ -6,10 +6,11 @@ class SongList {
         var songList = document.createElement("ul");
         songList.setAttribute("id", "songList");
         songList.classList.add("material");
-        var div = document.createElement("div");
-        div.innerHTML ="+";
-        div.classList.add("addButton");
-        songList.appendChild(div);
+        var addButton = document.createElement("div");
+        addButton.innerHTML ="+";
+        addButton.classList.add("addButton");
+        addButton.classList.add("material");
+        songList.appendChild(addButton);
         this.songs.map(function(song){
            songList.appendChild(new Song(song).render());
         });

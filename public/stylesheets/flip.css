@@ -71,5 +71,13 @@ body {
      display:none;
 }
 .addButton {
-    background-color:green;
+    background-color:#21A45C;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50%;
+    font-size: 36px;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: white;
 }
