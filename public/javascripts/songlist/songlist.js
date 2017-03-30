@@ -11,7 +11,12 @@ class SongList {
         addButton.classList.add("addButton");
         addButton.classList.add("material");
         addButton.addEventListener("click", function(){
-            songList.appendChild(new CreateSong().render());
+            var createSong = new CreateSong();
+            var createSongDOM = createSong.render();
+            createSong.setSongCreateHandler(function(songTitle){
+                songList.removeChild(createSongDOM);
+            });
+            songList.appendChild(createSongDOM);
         });
         songList.appendChild(addButton);
         this.songs.map(function(song){
