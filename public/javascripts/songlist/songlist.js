@@ -15,6 +15,7 @@ class SongList {
             var createSongDOM = createSong.render();
             createSong.setSongCreateHandler(function(songTitle){
                 songList.removeChild(createSongDOM);
+                songList.appendChild(new Song({"title":songTitle}).render());
             });
             songList.appendChild(createSongDOM);
         });
