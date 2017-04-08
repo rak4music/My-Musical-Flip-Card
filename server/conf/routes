@@ -11,5 +11,7 @@ POST    /songs/create               controllers.SongWriteController.create()
 POST    /songs/update/:id           controllers.SongWriteController.update(id: Int)
 POST    /songs/delete/:id           controllers.SongWriteController.delete(id: Int)
 
+GET     /sjs                        controllers.BootstrapController.init()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

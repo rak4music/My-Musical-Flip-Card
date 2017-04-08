@@ -1,0 +1,14 @@
+@(json:String)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>Flip</title>
+    <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/flip.css")"/>
+</head>
+<body>
+    <div id="content"></div>
+    <audio src="@routes.Assets.versioned("audio/metronome100bps.mp3")" id="metronome" loop="loop"></audio>
+    <script src="@routes.Assets.versioned("client-fastopt.js")"></script>
+</body>
+</html>

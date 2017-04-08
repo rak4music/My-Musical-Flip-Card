@@ -1,7 +1,7 @@
-logs
-project/project/target
-project/target
-target
-MyMusicalFlipCard.sublime-workspace
 .idea
-*.jm
+client/project/target
+project/target
+server/target
+shared/.js/target
+shared/.jvm/target
+target
