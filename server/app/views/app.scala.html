@@ -13,7 +13,7 @@
         <script src="@routes.Assets.versioned("client-fastopt.js")"></script>
         <script type="text/javascript">
             let songs = @Html(json)[0];
-            system.ApplicationInitializer().main(songs)
+            system.ApplicationInitializer().init(songs, document.getElementById("content"))
         </script>
     </body>
 </html>

@@ -3,19 +3,19 @@ package presenter
 import model.SongReference
 import org.scalajs.dom
 import org.scalajs.dom.Node
-import system.{Event, EventBus, EventType}
+import system.EventBus
+import system.Events.ViewSongEvent
 
 class SongReferencePresenter(reference: SongReference) {
   var selected = false
 
   def render(): Node = {
-    var listItem = dom.document.createElement("li");
+    var listItem = dom.document.createElement("li")
     listItem.addEventListener("click", (e: dom.Event) => {
-      var event = new Event(EventType.VIEW_SONG, reference);
-      EventBus.dispatchEvent(event);
+      EventBus.dispatchEvent(ViewSongEvent(reference))
     })
-    listItem.setAttribute("className", if(this.selected) "selected" else "");
-    listItem.innerHTML = reference.title;
-    return listItem;
+    listItem.setAttribute("className", if(this.selected) "selected" else "")
+    listItem.innerHTML = reference.title
+    return listItem
   }
 }

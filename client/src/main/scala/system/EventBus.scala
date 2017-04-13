@@ -1,14 +1,15 @@
 package system
 
 import model.SongReference
+import system.Events.Event
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
 object EventBus {
-  val eventListeners = new mutable.HashMap[String, ListBuffer[(Event) => Unit]]()
+  val eventListeners = new mutable.HashMap[Symbol, ListBuffer[(Event) => Unit]]()
 
-  def addEventListener(eventType:String, listener: (Event) => Unit): Unit = {
+  def addEventListener(eventType:Symbol, listener: (Event) => Unit): Unit = {
     if(!eventListeners.contains(eventType)) {
       eventListeners += eventType -> ListBuffer()
     }
@@ -20,7 +21,7 @@ object EventBus {
   }
 
   def dispatchEvent(event:Event): Unit = {
-    eventListeners.get(event.eventType) match {
+    eventListeners.get(event.id) match {
       case Some(list) => {
         list.foreach { listener =>
           listener(event)
@@ -30,9 +31,10 @@ object EventBus {
   }
 }
 
-object EventType {
-  val VIEW_SONG = "viewSong"
-  val CREATE_SONG = "createSong"
+object Events {
+  sealed abstract class Event(val id: Symbol)
+  val VIEW_SONG = 'viewSong
+  val CREATE_SONG = 'createSong
+  case class ViewSongEvent(val song: SongReference) extends Event(VIEW_SONG)
+  case class CreateSongEvent() extends Event(CREATE_SONG)
 }
-
-case class Event(val eventType: String, val song: SongReference)

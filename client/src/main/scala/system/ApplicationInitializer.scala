@@ -2,7 +2,9 @@ package system
 
 import model.SongReference
 import org.scalajs.dom
+import org.scalajs.dom.html
 import presenter.SongListPresenter
+import system.Events.Event
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExport
@@ -11,18 +13,17 @@ import scala.scalajs.js.annotation.JSExport
 object ApplicationInitializer {
 
   @JSExport
-  def main(songs: js.Array[SongReference]): Unit = {
-    val content = dom.document.getElementById("content");
+  def init(songs: js.Array[SongReference], contentPane: html.Div): Unit = {
     val songDetailContainer = dom.document.createElement("div");
     songDetailContainer.setAttribute("id", "songDetailContainer");
     songDetailContainer.classList.add("material");
 
     val songList = new SongListPresenter(songs);
-    content.appendChild(songList.render());
-    content.appendChild(songDetailContainer);
+    contentPane.appendChild(songList.render());
+    contentPane.appendChild(songDetailContainer);
 
-    EventBus.addEventListener(EventType.VIEW_SONG, handleViewSong)
-    EventBus.addEventListener(EventType.CREATE_SONG, handleCreateSong)
+    EventBus.addEventListener(Events.VIEW_SONG, handleViewSong)
+    EventBus.addEventListener(Events.CREATE_SONG, handleCreateSong)
   }
 
   def handleViewSong(e: Event): Unit = {
