@@ -7,26 +7,31 @@ import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
 object EventBus {
-  val eventListeners = new mutable.HashMap[Symbol, ListBuffer[(Event) => Unit]]()
 
-  def addEventListener(eventType:Symbol, listener: (Event) => Unit): Unit = {
-    if(!eventListeners.contains(eventType)) {
-      eventListeners += eventType -> ListBuffer()
+  private def eventListenerMaker[T <: Event]() = { //Allows us to define a type where a val wouldn't
+    new mutable.HashMap[Symbol, ListBuffer[(T) => Unit]]()
+  }
+  private val eventListeners = eventListenerMaker()
+
+  def addEventListener[T <: Event](id:Symbol, listener: (T) => Unit): Unit = {
+    if(!eventListeners.contains(id)) {
+      eventListeners += id -> ListBuffer()
     }
-    val eventTypeListeners = eventListeners.get(eventType).get
+    val eventTypeListeners = eventListeners.get(id).get
     val isDuplicate = eventTypeListeners.exists(l => l == listener)
     if(!isDuplicate) {
-     eventTypeListeners += listener
+      eventTypeListeners += listener
     }
   }
 
-  def dispatchEvent(event:Event): Unit = {
+  def dispatchEvent[T <: Event](event:T): Unit = {
     eventListeners.get(event.id) match {
       case Some(list) => {
         list.foreach { listener =>
           listener(event)
         }
       }
+      case None => throw new RuntimeException(s"""No handler found for event of type ${event.id}""")
     }
   }
 }
