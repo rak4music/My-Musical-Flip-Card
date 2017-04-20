@@ -8,8 +8,8 @@ import scala.collection.mutable.ListBuffer
 
 object EventBus {
 
-  private def eventListenerMaker[T <: Event]() = { //Allows us to define a type where a val wouldn't
-    new mutable.HashMap[Symbol, ListBuffer[(T) => Unit]]()
+  private def eventListenerMaker(): mutable.HashMap[Symbol, ListBuffer[(Event) => Unit]] = { //Allows us to define a type where a val wouldn't
+    new mutable.HashMap[Symbol, ListBuffer[(Event) => Unit]]()
   }
   private val eventListeners = eventListenerMaker()
 
@@ -20,11 +20,11 @@ object EventBus {
     val eventTypeListeners = eventListeners.get(id).get
     val isDuplicate = eventTypeListeners.exists(l => l == listener)
     if(!isDuplicate) {
-      eventTypeListeners += listener
+      eventTypeListeners += listener.asInstanceOf[(Event) => Unit]
     }
   }
 
-  def dispatchEvent[T <: Event](event:T): Unit = {
+  def dispatchEvent(event:Event): Unit = {
     eventListeners.get(event.id) match {
       case Some(list) => {
         list.foreach { listener =>
