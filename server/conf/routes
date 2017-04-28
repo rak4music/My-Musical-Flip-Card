@@ -4,14 +4,13 @@
 
 # Home page
 GET     /songs                      controllers.SongReadController.list()
-GET     /                           controllers.SongReadController.view()
+GET     /                           controllers.BootstrapController.init()
 GET     /songs/:id                  controllers.SongReadController.show(id: Int)
 GET     /songs/:id/lines            controllers.SongReadController.lines(id: Int)
 POST    /songs/create               controllers.SongWriteController.create()
 POST    /songs/update/:id           controllers.SongWriteController.update(id: Int)
 POST    /songs/delete/:id           controllers.SongWriteController.delete(id: Int)
 
-GET     /sjs                        controllers.BootstrapController.init()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
