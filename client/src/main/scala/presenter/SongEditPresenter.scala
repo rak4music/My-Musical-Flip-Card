@@ -17,14 +17,22 @@ class SongEditPresenter(val song: SongReference, val contentPane: Node) extends 
   }
 
   def createSongDetail(songDetailNode: Element, detail: JsSongDetail) {
-    val input = dom.document.createElement("input")
+    val input = dom.document.createElement("input").asInstanceOf[HTMLInputElement]
     input.setAttribute("id","lyricsInput")
     input.setAttribute("type","text")
-    val inputWrapper = dom.document.createElement("div")
-    inputWrapper.setAttribute("id","lyricsInputWrapper")
-    inputWrapper.appendChild(input)
+    val lyricsWrapper = dom.document.createElement("div")
+    lyricsWrapper.setAttribute("id","lyricsWrapper")
+    lyricsWrapper.appendChild(input)
     createNoteTimeline(songDetailNode)
-    songDetailNode.appendChild(inputWrapper)
+    songDetailNode.appendChild(lyricsWrapper)
+    input.addEventListener("blur", (event: FocusEvent) => {
+      if(!input.value.isEmpty) {
+        val lyricsText = dom.document.createElement("div")
+        lyricsText.setAttribute("id", "lyricsText")
+        lyricsText.innerHTML = input.value
+        lyricsWrapper.replaceChild(lyricsText, input)
+      }
+    })
   }
 
   def renderDetail(detail: JsSongDetail): Unit = {
