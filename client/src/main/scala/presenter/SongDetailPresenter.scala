@@ -7,7 +7,7 @@ import org.scalajs.dom.{Event, Node, XMLHttpRequest}
 
 import scala.scalajs.js.JSON
 
-class SongDetailPresenter(val song: SongReference, val contentPane: Node) {
+class SongDetailPresenter(val song: SongReference, val contentPane: Node) extends SongPresenter {
 
   var songDetail: JsSongDetail = null
   var metronomeAutoStopIntervalId: Int = 0
@@ -16,20 +16,11 @@ class SongDetailPresenter(val song: SongReference, val contentPane: Node) {
   var bpm:Double  = 0
 
   def render () {
-    this.reset();
-    val xhr = new XMLHttpRequest();
-    xhr.open("GET", this.song.href);
-//    xhr.responseType = "json";
-    xhr.onload = (e: Event) => {
-      val text = xhr.responseText
-      val detail:JsSongDetail = JSON.parse(xhr.responseText).asInstanceOf[JsSongDetail]
-      renderDetail(detail)
-    }
-    xhr.send();
+    this.reset()
+    this.fetchSong(song, renderDetail)
   }
 
   def renderDetail(detail: JsSongDetail){
-    this.songDetail = detail
     val songDetailNode = dom.document.createElement("div");
     songDetailNode.setAttribute("id","songDetail");
     this.renderSongDetail(songDetailNode);
@@ -161,12 +152,6 @@ class SongDetailPresenter(val song: SongReference, val contentPane: Node) {
   def stopMetronome() {
     this.pauseMetronome();
     dom.document.getElementById("metronome").asInstanceOf[Audio].currentTime=0;
-  }
-
-  def reset() {
-    val range = dom.document.createRange()
-    range.selectNodeContents(this.contentPane);
-    range.deleteContents();
   }
 
   def renderSongDetail(container: Node) {

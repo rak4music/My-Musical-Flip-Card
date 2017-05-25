@@ -32,8 +32,16 @@ body {
     top: 8px;
     left: 8px;
 }
+#songList > li {
+    padding:8px;
+    font-size:1.3em;
+    background-color: #21A45C;
+    color:white;
+}
 #songList > li:hover {
-    background-color: #ffcc00;
+    background-color: #21A45C;
+    color:#FFF;
+    cursor: pointer;
 }
 #songDetailContainer{
     position:absolute;
@@ -80,4 +88,8 @@ body {
     padding-right: 10px;
     padding-left: 10px;
     color: white;
+}
+.editSongReferenceIcon {
+    padding-top:4px;
+    float:right;
 }
