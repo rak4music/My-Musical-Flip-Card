@@ -3,7 +3,9 @@ package presenter
 import model.{JsSongDetail, SongReference}
 import org.scalajs.dom
 import org.scalajs.dom.Node
-import org.scalajs.dom.raw.Element
+import org.scalajs.dom.ext.KeyCode
+import org.scalajs.dom.raw._
+import view.NoteTimeline
 
 class SongEditPresenter(val song: SongReference, val contentPane: Node) extends SongPresenter {
 
@@ -33,28 +35,70 @@ class SongEditPresenter(val song: SongReference, val contentPane: Node) extends 
   }
 
   def createNoteTimeline(songDetailNode: Element) = {
-    val line = dom.document.createElement("div")
-    line.setAttribute("id","noteTimeline")
+    val INDICATOR_OFFSET = 5
+    val noteAddIndicator = dom.document.createElement("div")
+    noteAddIndicator.setAttribute("id", "noteAddIndicator")
+    noteAddIndicator.classList.add("hidden")
+    songDetailNode.appendChild(noteAddIndicator)
+
     val lineContainer = dom.document.createElement("div")
     lineContainer.setAttribute("id","noteTimelineContainer")
     lineContainer.innerHTML = "&nbsp;"
-    lineContainer.appendChild(line)
     songDetailNode.appendChild(lineContainer)
-    val addIcon = dom.document.createElement("img")
-    addIcon.setAttribute("id", "noteTimelineAddIcon")
-    addIcon.setAttribute("src", "/assets/images/add_icon.png")
-    addIcon.classList.add("hidden")
-    songDetailNode.appendChild(addIcon)
+
+    val line = dom.document.createElement("div")
+    line.setAttribute("id","noteTimeline")
+    lineContainer.appendChild(line)
 
     lineContainer.addEventListener("mousemove", (event: dom.MouseEvent) => {
-      addIcon.setAttribute("style","left:" + event.pageX + "px;")
+      noteAddIndicator.asInstanceOf[HTMLElement].style.left = (event.pageX - INDICATOR_OFFSET) + "px"
     })
-    lineContainer.addEventListener("mouseover", (event: dom.MouseEvent) => {
-      addIcon.classList.remove("hidden")
+    lineContainer.addEventListener("mouseenter", (event: dom.MouseEvent) => {
+      noteAddIndicator.classList.remove("hidden")
     })
-    lineContainer.addEventListener("mouseout", (event: dom.MouseEvent) => {
-      addIcon.classList.add("hidden")
+    lineContainer.addEventListener("mouseleave", (event: dom.MouseEvent) => {
+      noteAddIndicator.classList.add("hidden")
+    })
+    lineContainer.addEventListener("click", (event: dom.MouseEvent) => {
+      val noteInput = createNoteInput(event.pageX - INDICATOR_OFFSET, event.pageY, (noteText: HTMLElement) => {
+        lineContainer.appendChild(noteText)
+        noteText.style.left = event.pageX - INDICATOR_OFFSET + "px"
+      })
+      lineContainer.appendChild(noteInput)
+      noteInput.asInstanceOf[HTMLInputElement].focus()
     })
   }
 
+  var noteInput: HTMLInputElement = null
+  def createNoteInput(x: Double, y: Double, noteTextConsumer: HTMLElement => Unit) = {
+    noteInput = dom.document.createElement("input").asInstanceOf[HTMLInputElement]
+    noteInput.setAttribute("id","noteInput")
+    noteInput.setAttribute("type", "text")
+    val style = noteInput.asInstanceOf[HTMLElement].style
+    style.left = x + "px"
+    noteInput.addEventListener("click", (event: dom.MouseEvent) => event.stopPropagation())
+    noteInput.addEventListener("keyup", (event: dom.KeyboardEvent) => {
+      if(event.keyCode == KeyCode.Enter) {
+        noteInput.blur()
+      }
+      val style = dom.window.getComputedStyle(noteInput)
+      val fontSize = style.fontSize.replace("px","").toInt
+      val newWidth = (fontSize / 2) * noteInput.value.size
+      noteInput.style.width = newWidth + 30 + "px"
+    })
+    noteInput.addEventListener("blur", (event: FocusEvent) => {
+      if(!noteInput.value.isEmpty) {
+        createNoteText(noteInput.value, x, y, noteTextConsumer)
+      }
+      noteInput.parentNode.removeChild(noteInput)
+    })
+    noteInput
+  }
+
+  def createNoteText(note: String, x: Double, y: Double, noteTextConsumer: HTMLElement => Unit): Unit = {
+    val noteText = dom.document.createElement("div").asInstanceOf[HTMLElement]
+    noteText.setAttribute("class", "noteText")
+    noteText.innerHTML = note
+    noteTextConsumer(noteText)
+  }
 }

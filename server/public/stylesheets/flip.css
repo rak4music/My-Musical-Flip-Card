@@ -95,7 +95,7 @@ body {
 }
 #lyricsInputWrapper {
     position:absolute;
-    top:45px;
+    top:50px;
     left:4px;
     right:4px;
 }
@@ -109,18 +109,36 @@ body {
     right:8px;
 }
 #noteTimelineContainer {
-
+    height:95px;
+    cursor: text;
 }
 #noteTimeline {
     position:absolute;
     bottom:50%;
     left:0px;
     right:0px;
-    border-bottom:1px solid #21A45C;
+    border-bottom:2px solid #21A45C;
 }
-#noteTimelineAddIcon {
-    height:16px;
-    width:16px;
+#noteAddIndicator {
+    height:48px;
+    width:48px;
     position: fixed;
-    top:8px;
+    top:16px;
+    border-left:solid 2px #21A45C;
+    pointer-events: none;
+}
+#noteInput {
+    top:16px;
+    position: fixed;
+    min-width:40px;
+    width:40px;
+    font-size:24pt;
+    color: #21A45C;
+}
+#noteTimelineContainer > .noteText {
+    font-size:23pt;
+    color: #21A45C;
+    position: fixed;
+    top:21px;
+    padding-left:3px;
 }
