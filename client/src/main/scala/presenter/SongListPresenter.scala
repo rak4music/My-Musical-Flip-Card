@@ -16,14 +16,15 @@ class SongListPresenter(songs: js.Array[SongReference]) {
     addButton.classList.add("addButton")
     addButton.classList.add("material")
     addButton.addEventListener("click", (e: dom.Event) => {
-      var createSongPresenter = new CreateSongPresenter()
-      var createSongNode = createSongPresenter.render()
+      val createSongPresenter = new CreateSongPresenter()
+      val createSongNode = createSongPresenter.render()
       createSongPresenter.setSongCreateHandler { songTitle =>
         songList.removeChild(createSongNode)
         //TODO: Replace the nulls below once we're persisting the song
         songList.appendChild(new SongReferencePresenter(new SongReference(null, songTitle, null)).render())
       }
       songList.appendChild(createSongNode)
+      createSongPresenter setFocus()
     })
     songList.appendChild(addButton)
     this.songs.map((songReference: SongReference) => {

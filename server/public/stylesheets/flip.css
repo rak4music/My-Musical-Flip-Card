@@ -33,10 +33,11 @@ body {
     left: 8px;
 }
 #songList > li {
-    padding:8px;
+    padding:1px 8px 8px 8px;
     font-size:1.3em;
     background-color: #21A45C;
     color:white;
+    border-bottom: solid 1px;
 }
 #songList > li:hover {
     background-color: #21A45C;

@@ -42,6 +42,6 @@ object Events {
   val CREATE_SONG = 'createSong
   val EDIT_SONG = 'editSong
   case class ViewSongEvent(val song: SongReference) extends Event(VIEW_SONG)
-  case class CreateSongEvent() extends Event(CREATE_SONG)
+  case class CreateSongEvent(val title:String) extends Event(CREATE_SONG)
   case class EditSongEvent(val song: SongReference) extends Event(EDIT_SONG);
 }

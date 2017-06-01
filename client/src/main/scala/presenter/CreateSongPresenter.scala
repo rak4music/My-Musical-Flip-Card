@@ -1,20 +1,38 @@
 package presenter
 
 import org.scalajs.dom
+import org.scalajs.dom.KeyboardEvent
+import org.scalajs.dom.raw.HTMLInputElement
+import system.EventBus
+import system.Events.CreateSongEvent
 
 class CreateSongPresenter {
   var songCreateHandler: (String) => Unit = null
   var selected = false
+  var input:HTMLInputElement = null
   def render(): dom.Node = {
-    val input = dom.document.createElement("input")
+    input = dom.document.createElement("input").asInstanceOf[HTMLInputElement]
     input.setAttribute("type","text")
-    //input.addEventListener("keypress", (e) => this.onKeyPress(e,song))
+    input.addEventListener("keypress", (e:dom.KeyboardEvent) => onKeyPress(e,input))
     val li = dom.document.createElement("li")
     li.appendChild(input)
     li
   }
-
+  def onKeyPress(e: KeyboardEvent, input:HTMLInputElement){
+    val key=e.keyCode
+    if(key==13){
+      val event=new CreateSongEvent(input.value)
+      EventBus.dispatchEvent(event)
+      if (this.songCreateHandler!=null){
+        this.songCreateHandler(input.value)
+      }
+    }
+  }
   def setSongCreateHandler(handler: (String) => Unit): Unit = {
     songCreateHandler = handler;
+  }
+
+  def setFocus(): Unit ={
+    input.focus()
   }
 }
