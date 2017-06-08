@@ -12,9 +12,16 @@ class SongEditPresenter(val song: SongReference, val contentPane: Node) extends 
   var songDetail: JsSongDetail = null
 
   def render() {
-    this.reset()
-    this.fetchSong(song, renderDetail)
+    reset()
+    fetchSong(song, renderDetail)
   }
+
+  def render(jsSongDetail: JsSongDetail) {
+    reset()
+    renderDetail(jsSongDetail)
+    songDetail = jsSongDetail
+  }
+
 
   def createSongDetail(songDetailNode: Element, detail: JsSongDetail) {
     val input = dom.document.createElement("input").asInstanceOf[HTMLInputElement]

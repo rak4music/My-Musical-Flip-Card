@@ -21,7 +21,7 @@ class SongListPresenter(songs: js.Array[SongReference]) {
       createSongPresenter.setSongCreateHandler { songTitle =>
         songList.removeChild(createSongNode)
         //TODO: Replace the nulls below once we're persisting the song
-        songList.appendChild(new SongReferencePresenter(new SongReference(null, songTitle, null)).render())
+        songList.appendChild(new SongReferencePresenter(new SongReference(null, songTitle, null, true)).render())
       }
       songList.appendChild(createSongNode)
       createSongPresenter setFocus()
