@@ -1,6 +1,7 @@
 package model
 
 import scala.scalajs.js
+import scala.scalajs.js.annotation.ScalaJSDefined
 
-@js.native
+@ScalaJSDefined
 class SongReference(val id: String, val title: String, val href: String, val isNew: Boolean) extends js.Object

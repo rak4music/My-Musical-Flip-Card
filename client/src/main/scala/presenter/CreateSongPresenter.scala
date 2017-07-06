@@ -7,7 +7,6 @@ import system.EventBus
 import system.Events.CreateSongEvent
 
 class CreateSongPresenter {
-  var songCreateHandler: (String) => Unit = null
   var selected = false
   var input:HTMLInputElement = null
   def render(): dom.Node = {
@@ -23,13 +22,7 @@ class CreateSongPresenter {
     if(key==13){
       val event=new CreateSongEvent(input.value)
       EventBus.dispatchEvent(event)
-      if (this.songCreateHandler!=null){
-        this.songCreateHandler(input.value)
-      }
     }
-  }
-  def setSongCreateHandler(handler: (String) => Unit): Unit = {
-    songCreateHandler = handler;
   }
 
   def setFocus(): Unit ={

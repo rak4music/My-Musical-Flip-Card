@@ -1,12 +1,22 @@
 package system
 
 import model.SongReference
-import system.Events.Event
+import system.Events.{CreateSongEvent, Event}
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
 object EventBus {
+  def removeEventListener[T <: Event](id: Symbol, listener: (T) => Unit) = {
+    if(eventListeners.contains(id)) {
+      val eventTypeListeners = eventListeners.get(id).get
+      if(eventTypeListeners.contains(listener)){
+        eventTypeListeners.remove(eventTypeListeners.indexOf(listener))
+      }
+    }
+
+  }
+
 
   private def eventListenerMaker(): mutable.HashMap[Symbol, ListBuffer[(Event) => Unit]] = { //Allows us to define a type where a val wouldn't
     new mutable.HashMap[Symbol, ListBuffer[(Event) => Unit]]()

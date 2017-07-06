@@ -21,7 +21,7 @@ class CreateSongHandler(songDetailContainer: Node) {
 //                   "key" -> "",
 //                   "duration" -> 180 )
     val detail:JsSongDetail = JSON.parse(json).asInstanceOf[JsSongDetail]
-    val reference = new SongReference("", event.title, "", true)
+    val reference = new SongReference(null , event.title, null , true)
     new SongEditPresenter(reference, songDetailContainer).render(detail)
   }
 }

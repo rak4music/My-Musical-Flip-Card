@@ -3,6 +3,8 @@ package presenter
 import model.SongReference
 import org.scalajs.dom
 import org.scalajs.dom.Node
+import system.Events.CreateSongEvent
+import system.{EventBus, Events}
 
 import scala.scalajs.js
 
@@ -18,11 +20,13 @@ class SongListPresenter(songs: js.Array[SongReference]) {
     addButton.addEventListener("click", (e: dom.Event) => {
       val createSongPresenter = new CreateSongPresenter()
       val createSongNode = createSongPresenter.render()
-      createSongPresenter.setSongCreateHandler { songTitle =>
+      def createSongHandler(event:CreateSongEvent): Unit={
+        EventBus.removeEventListener(Events.CREATE_SONG, createSongHandler)
         songList.removeChild(createSongNode)
         //TODO: Replace the nulls below once we're persisting the song
-        songList.appendChild(new SongReferencePresenter(new SongReference(null, songTitle, null, true)).render())
+        songList.appendChild(new SongReferencePresenter(new SongReference(null, event.title, null, true)).render())
       }
+      EventBus.addEventListener(Events.CREATE_SONG, createSongHandler)
       songList.appendChild(createSongNode)
       createSongPresenter setFocus()
     })
@@ -32,4 +36,5 @@ class SongListPresenter(songs: js.Array[SongReference]) {
     })
     return songList
   }
+
 }
