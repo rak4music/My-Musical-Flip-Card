@@ -1,9 +1,11 @@
 package presenter
 
+import javax.swing.text.html.HTML
+
 import model.SongReference
 import org.scalajs.dom
 import org.scalajs.dom.Node
-import org.scalajs.dom.raw.Element
+import org.scalajs.dom.raw.{Element, HTMLDivElement, HTMLElement}
 import system.Events.CreateSongEvent
 import system.{EventBus, Events}
 
@@ -11,11 +13,6 @@ import scala.scalajs.js
 
 class SongListPresenter(songs: js.Array[SongReference]) {
   def render(): Node = {
-    def createSongHandler(createSongNode: Node, songList: Element)(event:CreateSongEvent): Unit={
-      songList.removeChild(createSongNode)
-      //TODO: Replace the nulls below once we're persisting the song
-      songList.appendChild(new SongReferencePresenter(new SongReference(null, event.title, null, true)).render())
-    }
     val songList: Element = dom.document.createElement("ul")
     songList.setAttribute("id", "songList")
     songList.classList.add("material")
@@ -26,11 +23,8 @@ class SongListPresenter(songs: js.Array[SongReference]) {
     addButton.addEventListener("click", (e: dom.Event) => {
       val createSongPresenter = new CreateSongPresenter()
       val createSongNode = createSongPresenter.render()
-      val handler: (CreateSongEvent) => Unit = createSongHandler(createSongNode, songList)
-      EventBus.addEventListener(Events.CREATE_SONG, (event:CreateSongEvent)=>{
-        handler(event)
-        EventBus.removeEventListener(Events.CREATE_SONG, handler)
-      })
+      val handler = new SongCreatedHandler(createSongNode, songList)
+      EventBus.addEventListener(Events.CREATE_SONG, handler.handle)
       songList.appendChild(createSongNode)
       createSongPresenter setFocus()
     })
@@ -39,6 +33,17 @@ class SongListPresenter(songs: js.Array[SongReference]) {
       songList.appendChild(new SongReferencePresenter(songReference).render())
     })
     return songList
+  }
+
+}
+class SongCreatedHandler (createSongNode: Node, songList: Element){
+  def handle(event: CreateSongEvent): Unit = {
+    if(songList.asInstanceOf[HTMLDivElement].contains(createSongNode.asInstanceOf[HTMLElement])){
+      songList.removeChild(createSongNode)
+    }
+    //TODO: Replace the nulls below once we're persisting the song
+    songList.appendChild(new SongReferencePresenter(new SongReference(null, event.title, null, true)).render())
+    EventBus.removeEventListener(Events.CREATE_SONG, handle)
   }
 
 }

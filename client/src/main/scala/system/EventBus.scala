@@ -1,6 +1,7 @@
 package system
 
 import model.SongReference
+import org.scalajs.dom
 import system.Events.{CreateSongEvent, Event}
 
 import scala.collection.mutable
@@ -11,6 +12,7 @@ object EventBus {
     if(eventListeners.contains(id)) {
       val eventTypeListeners = eventListeners.get(id).get
       if(eventTypeListeners.contains(listener)){
+        dom.window.console.log("removingEventListner")
         eventTypeListeners.remove(eventTypeListeners.indexOf(listener))
       }
     }
