@@ -13,6 +13,7 @@ class CreateSongPresenter {
     input.setAttribute("type","text")
     input.addEventListener("keypress", (e:dom.KeyboardEvent) => onKeyPress(e,input))
     val li = dom.document.createElement("li")
+    li.classList.add("editableSong")
     li.appendChild(input)
     li
   }
