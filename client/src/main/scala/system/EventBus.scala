@@ -10,10 +10,13 @@ import scala.collection.mutable.ListBuffer
 object EventBus {
   def removeEventListener[T <: Event](id: Symbol, listener: (T) => Unit) = {
     if(eventListeners.contains(id)) {
+      dom.console.log("found id " + id)
       val eventTypeListeners = eventListeners.get(id).get
+      dom.console.log("number of listeners = " + eventTypeListeners.size)
       if(eventTypeListeners.contains(listener)){
-        dom.window.console.log("removingEventListner")
-        eventTypeListeners.remove(eventTypeListeners.indexOf(listener))
+        dom.console.log("found listener " + listener.toString())
+        val removed = eventTypeListeners.remove(eventTypeListeners.indexOf(listener))
+        dom.console.log("removed " + removed.toString())
       }
     }
 

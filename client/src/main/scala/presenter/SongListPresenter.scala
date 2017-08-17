@@ -1,13 +1,9 @@
 package presenter
 
-import javax.swing.text.html.HTML
-
 import model.SongReference
 import org.scalajs.dom
 import org.scalajs.dom.Node
 import org.scalajs.dom.raw.{Element, HTMLDivElement, HTMLElement}
-import system.Events.CreateSongEvent
-import system.{EventBus, Events}
 
 import scala.scalajs.js
 
@@ -24,7 +20,7 @@ class SongListPresenter(songs: js.Array[SongReference]) {
       val createSongPresenter = new CreateSongPresenter()
       val createSongNode = createSongPresenter.render()
       val handler = new SongCreatedHandler(createSongNode, songList)
-      EventBus.addEventListener(Events.CREATE_SONG, handler.handle)
+      createSongPresenter.setSongCreatedHandler(handler.handle)
       songList.appendChild(createSongNode)
       createSongPresenter setFocus()
     })
@@ -37,13 +33,12 @@ class SongListPresenter(songs: js.Array[SongReference]) {
 
 }
 class SongCreatedHandler (createSongNode: Node, songList: Element){
-  def handle(event: CreateSongEvent): Unit = {
+  def handle(title: String): Unit = {
     if(songList.asInstanceOf[HTMLDivElement].contains(createSongNode.asInstanceOf[HTMLElement])){
       songList.removeChild(createSongNode)
     }
     //TODO: Replace the nulls below once we're persisting the song
-    songList.appendChild(new SongReferencePresenter(new SongReference(null, event.title, null, true)).render())
-    EventBus.removeEventListener(Events.CREATE_SONG, handle)
+    songList.appendChild(new SongReferencePresenter(new SongReference(null, title, null, true)).render())
   }
 
 }

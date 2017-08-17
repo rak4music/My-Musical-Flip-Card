@@ -3,12 +3,11 @@ package presenter
 import org.scalajs.dom
 import org.scalajs.dom.KeyboardEvent
 import org.scalajs.dom.raw.HTMLInputElement
-import system.EventBus
-import system.Events.CreateSongEvent
 
 class CreateSongPresenter {
   var selected = false
   var input:HTMLInputElement = null
+  var handler: String => Unit = null
   def render(): dom.Node = {
     input = dom.document.createElement("input").asInstanceOf[HTMLInputElement]
     input.setAttribute("type","text")
@@ -20,12 +19,14 @@ class CreateSongPresenter {
   def onKeyPress(e: KeyboardEvent, input:HTMLInputElement){
     val key=e.keyCode
     if(key==13){
-      val event=new CreateSongEvent(input.value)
-      EventBus.dispatchEvent(event)
+      handler(input.value)
     }
   }
 
   def setFocus(): Unit ={
     input.focus()
+  }
+  def setSongCreatedHandler(handler: String => Unit) {
+    this.handler = handler
   }
 }
