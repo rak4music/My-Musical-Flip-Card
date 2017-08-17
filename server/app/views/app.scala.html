@@ -1,4 +1,4 @@
-@(json:String)
+@(songListJson:String, stubURL: String)
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,8 +12,9 @@
         <audio src="@routes.Assets.versioned("audio/metronome100bps.mp3")" id="metronome" loop="loop"></audio>
         <script src="@routes.Assets.versioned("client-fastopt.js")"></script>
         <script type="text/javascript">
-            let songs = @Html(json)[0];
-            system.ApplicationInitializer().init(songs, document.getElementById("content"))
+            let songs = @Html(songListJson)[0];
+            window.Flip = {}
+            system.ApplicationInitializer().init("@stubURL", songs, document.getElementById("content"))
         </script>
     </body>
 </html>

@@ -4,7 +4,7 @@ import javax.inject.Inject
 
 import anorm.{Row, SQL}
 import play.api.db.DBApi
-import play.api.libs.json.Json
+import play.api.libs.json.{JsObject, Json}
 import play.api.mvc._
 
 class BootstrapController@Inject()(dbApi: DBApi) extends Controller {
@@ -12,7 +12,8 @@ class BootstrapController@Inject()(dbApi: DBApi) extends Controller {
   implicit private val db = dbApi.database("mymusicalflipcard")
 
   def init() = Action { implicit request =>
-    Ok(views.html.app.render(createSongListJson().toString))
+    Ok(views.html.app.render(createSongListJson().toString,
+                             routes.SongWriteController.stub().absoluteURL()))
   }
 
   def createSongListJson()(implicit request: Request[AnyContent]) = {

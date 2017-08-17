@@ -63,6 +63,23 @@ class SongWriteController @Inject()(dbApi: DBApi) extends Controller {
     Ok("")
   }
 
+  def stub() = Action { implicit request =>
+    var newSongId: Option[Long] = null
+    val json = request.body.asJson match {
+      case Some(json) => {
+        db.withConnection { implicit c =>
+          val title = (json \ "title").as[String]
+          newSongId = SQL("insert into songs (title) values({title})").on('title -> title).executeInsert()
+        }
+      }
+    }
+    Ok(Json.obj(
+      "id"->newSongId.toString,
+      "href"->routes.SongReadController.show(newSongId.get.toInt).absoluteURL(),
+      "isNew"->true
+    ))
+  }
+
   def createPhrases(id:Option[Long],json:JsValue)(implicit c:Connection){
     (json \ "phrases").as[JsArray].value.foreach { jsonPhrase =>
       jsonPhrase.validate[Phrase](phraseReads) match {
