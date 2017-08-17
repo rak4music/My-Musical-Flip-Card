@@ -42,6 +42,9 @@ body {
 #songList > li.editableSong {
     padding-top:2px;
 }
+#songList > li input.error {
+    border:solid 3px red;
+}
 #songList > li:hover {
     background-color: #21A45C;
     color:#FFF;

@@ -17,10 +17,20 @@ class CreateSongPresenter {
     li.appendChild(input)
     li
   }
+
+  def validate(value: String): Boolean = {
+    value != null && !value.isEmpty
+  }
+
   def onKeyPress(e: KeyboardEvent, input:HTMLInputElement){
     val key=e.keyCode
     if(key==13){
-      handler(input.value)
+      val valid = validate(input.value)
+      if(valid){
+        handler(input.value)
+      }else{
+        input.classList.add("error")
+      }
     }
   }
 
