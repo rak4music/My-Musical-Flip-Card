@@ -8,3 +8,8 @@ target
 mps/solutions/Sandbox/classes_gen
 mps/solutions/Sandbox/source_gen.caches
 mps/solutions/Sandbox/source_gen
+mps/languages/JSON/classes_gen
+mps/languages/JSON/generator/source_gen.caches
+mps/languages/JSON/generator/source_gen
+mps/languages/JSON/source_gen
+mps/languages/JSON/source_gen.caches
