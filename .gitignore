@@ -5,3 +5,6 @@ server/target
 shared/.js/target
 shared/.jvm/target
 target
+mps/solutions/Sandbox/classes_gen
+mps/solutions/Sandbox/source_gen.caches
+mps/solutions/Sandbox/source_gen
