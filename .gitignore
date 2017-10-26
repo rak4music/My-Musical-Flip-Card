@@ -13,3 +13,9 @@ mps/languages/JSON/generator/source_gen.caches
 mps/languages/JSON/generator/source_gen
 mps/languages/JSON/source_gen
 mps/languages/JSON/source_gen.caches
+mps/languages/FlipScript/classes_gen
+mps/languages/FlipScript/generator/classes_gen
+mps/languages/FlipScript/generator/source_gen.caches
+mps/languages/FlipScript/generator/source_gen
+mps/languages/FlipScript/source_gen.caches
+mps/languages/FlipScript/source_gen
