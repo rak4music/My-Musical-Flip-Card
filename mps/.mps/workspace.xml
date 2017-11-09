@@ -7,9 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bac9370c-7e29-4b41-8e65-141e97b3a168" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.mps/modules.xml" afterPath="$PROJECT_DIR$/.mps/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.mps/workspace.xml" afterPath="$PROJECT_DIR$/.mps/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/solutions/Sandbox/Sandbox.msd" afterPath="$PROJECT_DIR$/solutions/Sandbox/Sandbox.msd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/languages/FlipScript/generator/template/main@generator.mps" afterPath="$PROJECT_DIR$/languages/FlipScript/generator/template/main@generator.mps" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/solutions/Sandbox/models/songbox.mps" afterPath="$PROJECT_DIR$/solutions/Sandbox/models/songbox.mps" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +24,7 @@
         <TabState>
           <option name="title" value="Console" />
           <tab>
-            <model ref="24105fbe-e212-40c6-8b4e-581eb3697fa0/r:6dfe04e4-2c29-4427-80eb-b67a27473a8d(TempModule24105fbe-e212-40c6-8b4e-581eb3697fa0/TempModel_110718557460230)">
+            <model ref="28b182b4-c61d-4bd8-957e-48bdb552fbab/r:08f96cdf-5d73-4703-91d8-bc34206481ca(TempModule28b182b4-c61d-4bd8-957e-48bdb552fbab/TempModel_34509924695719)">
               <persistence version="9" />
               <languages>
                 <use id="de1ad86d-6e50-4a02-b306-d4d17f64c375" name="jetbrains.mps.console.base" version="0" />
@@ -59,13 +58,13 @@
                   <concept id="757553790980850366" name="jetbrains.mps.console.base.structure.History" flags="ng" index="3balQm" />
                 </language>
               </registry>
-              <node concept="aymSD" id="2kywAoIv63_">
-                <node concept="3balQm" id="2kywAoIv63A" role="aymYE" />
-                <node concept="2Clz$F" id="2kywAoIv63B" role="aymYO">
+              <node concept="aymSD" id="4MYYhrQ2Sn9">
+                <node concept="3balQm" id="4MYYhrQ2Sna" role="aymYE" />
+                <node concept="2Clz$F" id="4MYYhrQ2Snb" role="aymYO">
                   <property role="TrG5h" value="CommandHolder" />
                 </node>
-                <node concept="2_V_lH" id="2kywAoIv63C" role="1PhJh3">
-                  <ref role="2_V_lI" node="2kywAoIv63B" resolve="CommandHolder" />
+                <node concept="2_V_lH" id="4MYYhrQ2Snc" role="1PhJh3">
+                  <ref role="2_V_lI" node="4MYYhrQ2Snb" resolve="CommandHolder" />
                 </node>
               </node>
             </model>
@@ -89,64 +88,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Going Down the Road Feeling Bad" pinned="false" current-in-tab="false">
-        <entry file="mps://node://Sandbox/Sandbox.songbox/Going Down the Road Feeling Bad">
+      <file leaf-file-name="Fire on The Mountain" pinned="false" current-in-tab="true">
+        <entry file="mps://node://Sandbox/Sandbox.songbox/Fire on The Mountain">
           <provider selected="true" editor-type-id="MPSFileEditor">
             <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
               <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
                 <selectionStack>
                   <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
                     <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="183" />
-                    <property name="caretXRelative" value="0" />
+                    <property name="caretX" value="359" />
+                    <property name="caretXRelative" value="232" />
                     <property name="sideSelectDirection" value="NONE" />
                     <cellInfo cellId="property_lyric" cellNumber="0" isInList="false">
-                      <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755862" />
+                      <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/8846541603256232787" />
                     </cellInfo>
                   </stackElement>
                 </selectionStack>
-                <errorMarkers>
-                  <errorMarker text="" propertyCell="true" cellId="property_artist" cellNumber="0" isInList="false">
-                    <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755860" />
-                  </errorMarker>
-                  <errorMarker text="" propertyCell="true" cellId="property_duration" cellNumber="0" isInList="false">
-                    <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755860" />
-                  </errorMarker>
-                  <errorMarker text="" propertyCell="true" cellId="property_upper" cellNumber="0" isInList="false">
-                    <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755861" />
-                  </errorMarker>
-                  <errorMarker text="" propertyCell="true" cellId="property_lower" cellNumber="0" isInList="false">
-                    <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755861" />
-                  </errorMarker>
-                  <errorMarker text="" propertyCell="true" cellId="property_bars" cellNumber="0" isInList="false">
-                    <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755862" />
-                  </errorMarker>
-                  <errorMarker text="" propertyCell="true" cellId="property_note" cellNumber="0" isInList="false">
-                    <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755862" />
-                  </errorMarker>
-                  <errorMarker text="" propertyCell="true" cellId="property_repeat" cellNumber="0" isInList="false">
-                    <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755862" />
-                  </errorMarker>
-                  <errorMarker text="" propertyCell="true" cellId="property_lyric" cellNumber="0" isInList="false">
-                    <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755862" />
-                  </errorMarker>
-                </errorMarkers>
+                <errorMarkers />
                 <transactionalProperties />
                 <foldable />
                 <restoreAlways />
               </memento>
-              <inspectorMemento currentlyEditedNode="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757075" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="364" />
-                    <property name="caretXRelative" value="120" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_labelName" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757076" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
+              <inspectorMemento currentlyEditedNode="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/8846541603256232787" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+                <selectionStack />
                 <errorMarkers />
                 <transactionalProperties />
                 <foldable />
@@ -157,266 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Key" pinned="false" current-in-tab="false">
-        <entry file="mps://node://FlipScript/FlipScript.structure/Key">
-          <provider selected="true" editor-type-id="MPSFileEditor">
-            <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-              <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellSelection">
-                    <property name="caretX" value="0" />
-                    <property name="caretXRelative" value="-15" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="Collection_993c3a_a" cellNumber="0" isInList="false">
-                      <node node_reference="r:106a280c-15ce-457e-bcc9-58c07260aa7b(FlipScript.structure)/9210699007504923535" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-              </memento>
-              <inspectorMemento currentlyEditedNode="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757075" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="364" />
-                    <property name="caretXRelative" value="120" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_labelName" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757076" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-                <enabledHints />
-              </inspectorMemento>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Phrase_Editor" pinned="false" current-in-tab="false">
-        <entry file="mps://node://FlipScript/FlipScript.editor/Phrase_Editor">
-          <provider selected="true" editor-type-id="MPSFileEditor">
-            <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-              <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="273" />
-                    <property name="caretXRelative" value="60" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_name" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504763679" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-              </memento>
-              <inspectorMemento currentlyEditedNode="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757075" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="364" />
-                    <property name="caretXRelative" value="120" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_labelName" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757076" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-                <enabledHints />
-              </inspectorMemento>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Song_Editor" pinned="false" current-in-tab="false">
-        <entry file="mps://node://FlipScript/FlipScript.editor/Song_Editor">
-          <provider selected="true" editor-type-id="MPSFileEditor">
-            <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-              <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="261" />
-                    <property name="caretXRelative" value="84" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_role_1" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757070" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-              </memento>
-              <inspectorMemento currentlyEditedNode="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757075" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="364" />
-                    <property name="caretXRelative" value="120" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_labelName" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757076" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-                <enabledHints />
-              </inspectorMemento>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Timing_Editor" pinned="false" current-in-tab="false">
-        <entry file="mps://node://FlipScript/FlipScript.editor/Timing_Editor">
-          <provider selected="true" editor-type-id="MPSFileEditor">
-            <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-              <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="183" />
-                    <property name="caretXRelative" value="60" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_name" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504760208" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-              </memento>
-              <inspectorMemento currentlyEditedNode="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757075" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="364" />
-                    <property name="caretXRelative" value="120" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_labelName" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757076" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-                <enabledHints />
-              </inspectorMemento>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Song" pinned="false" current-in-tab="true">
-        <entry file="mps://node://FlipScript/FlipScript.structure/Song">
-          <provider selected="true" editor-type-id="MPSFileEditor">
-            <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
-              <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="81" />
-                    <property name="caretXRelative" value="12" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_text" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757075" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-              </memento>
-              <inspectorMemento currentlyEditedNode="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757075" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="364" />
-                    <property name="caretXRelative" value="120" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_labelName" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757076" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-                <enabledHints />
-              </inspectorMemento>
-              <node node_ref="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757018" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main" pinned="false" current-in-tab="false">
-        <entry file="mps://node://FlipScript#2675844503989674220/main@generator/main">
-          <provider selected="true" editor-type-id="MPSFileEditor">
-            <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-              <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="279" />
-                    <property name="caretXRelative" value="0" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_name" cellNumber="0" isInList="false">
-                      <node node_reference="r:33da9b79-e277-406e-95bd-e5e74f38885a(main@generator)/2675844503989674221" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable>
-                  <collapsedElement isCollapsed="false">
-                    <cellIdElement cellId="refNodeList_dropAttrubuteRule" cellNumber="0" isInList="false">
-                      <node node_reference="r:33da9b79-e277-406e-95bd-e5e74f38885a(main@generator)/2675844503989674221" />
-                    </cellIdElement>
-                  </collapsedElement>
-                </foldable>
-                <restoreAlways />
-              </memento>
-              <inspectorMemento currentlyEditedNode="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757075" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-                <selectionStack>
-                  <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                    <property name="hasNonTrivialSelection" value="false" />
-                    <property name="caretX" value="364" />
-                    <property name="caretXRelative" value="120" />
-                    <property name="sideSelectDirection" value="NONE" />
-                    <cellInfo cellId="property_labelName" cellNumber="0" isInList="false">
-                      <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757076" />
-                    </cellInfo>
-                  </stackElement>
-                </selectionStack>
-                <errorMarkers />
-                <transactionalProperties />
-                <foldable />
-                <restoreAlways />
-                <enabledHints />
-              </inspectorMemento>
+      <file leaf-file-name="map_Song" pinned="false" current-in-tab="false">
+        <entry file="previewSandbox.songbox@0/map_Song">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             </state>
           </provider>
         </entry>
@@ -442,11 +151,11 @@
       </array>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="4" />
-    <option name="y" value="23" />
-    <option name="width" value="2556" />
-    <option name="height" value="1417" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="8" />
+    <option name="y" value="25" />
+    <option name="width" value="1440" />
+    <option name="height" value="815" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -521,6 +230,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Favorites" />
+      <pane id="FileSystem" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -529,11 +240,37 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="881e0de4-3f21-414f-aa05-7d21b545c551(FlipScript)" />
+              <option name="myItemId" value="227e8d2e-e3d2-410b-b624-df540adea95e" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor) in IdeaFile{file:///Users/hob.spillane/code/flip/mps/languages/FlipScript/models/editor.mps}" />
+              <option name="myItemId" value="Sandbox" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="227e8d2e-e3d2-410b-b624-df540adea95e" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="881e0de4-3f21-414f-aa05-7d21b545c551(FlipScript)" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
@@ -560,6 +297,10 @@
               <option name="myItemId" value="FlipScript#2675844503989674220" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="r:33da9b79-e277-406e-95bd-e5e74f38885a(main@generator) in IdeaFile{file:///Users/rdettelback/code/My-Musical-Flip-Card/mps/languages/FlipScript/generator/template/main@generator.mps}" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -575,7 +316,7 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox) in IdeaFile{file:///Users/hob.spillane/code/flip/mps/solutions/Sandbox/models/songbox.mps}" />
+              <option name="myItemId" value="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox) in IdeaFile{file:///Users/rdettelback/code/My-Musical-Flip-Card/mps/solutions/Sandbox/models/songbox.mps}" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
@@ -590,64 +331,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FlipScript#2675844503989674220" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="r:33da9b79-e277-406e-95bd-e5e74f38885a(main@generator) in IdeaFile{file:///Users/hob.spillane/code/flip/mps/languages/FlipScript/generator/template/main@generator.mps}" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="227e8d2e-e3d2-410b-b624-df540adea95e" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sandbox" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="881e0de4-3f21-414f-aa05-7d21b545c551(FlipScript)" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="227e8d2e-e3d2-410b-b624-df540adea95e" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="636b77e8-c36f-41d5-9a0b-bc786b06aa0a(JSON)" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="r:c6f9bfd4-85aa-4818-a081-a0063d6c0181(JSON.editor) in IdeaFile{file:///Users/hob.spillane/code/flip/mps/languages/JSON/models/editor.mps}" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
@@ -657,22 +340,24 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="881e0de4-3f21-414f-aa05-7d21b545c551(FlipScript)" />
+              <option name="myItemId" value="227e8d2e-e3d2-410b-b624-df540adea95e" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor) in IdeaFile{file:///Users/hob.spillane/code/flip/mps/languages/FlipScript/models/editor.mps}" />
+              <option name="myItemId" value="Sandbox" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="9210699007504757018" />
+              <option name="myItemId" value="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox) in IdeaFile{file:///Users/rdettelback/code/My-Musical-Flip-Card/mps/solutions/Sandbox/models/songbox.mps}" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="8846541603256232784" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </SELECTED>
         </subPane>
       </pane>
-      <pane id="FileSystem" />
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -744,7 +429,8 @@
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="23" width="2556" height="1417" extended-state="6" />
+    <frame x="8" y="25" width="1440" height="815" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Bookmarks" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Model Checker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.49841145" order="7" side_tool="false" content_ui="tabs" />
@@ -756,22 +442,22 @@
       <window_info id="Class Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Module Dependencies" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspector" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33358663" sideWeight="0.50636435" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Usages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspector" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33358663" sideWeight="0.50636435" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Usages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33358663" sideWeight="0.49363565" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33550915" sideWeight="0.49363565" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Context Actions" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="RefactoringView" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Node Explorer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Typechecker State" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Supertypes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Supertypes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16944444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Typesystem Trace" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16945107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Classpath Explorer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cell Explorer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependencies Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -794,8 +480,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="mps://node://FlipScipt/FlipScipt.structure/&lt;no name&gt;[ConstrainedDataTypeDeclaration]" />
-    <entry file="mps://node://JSON#1936581466847901581/main@generator/main" />
     <entry file="mps://node://JSON/JSON.structure/JsonBoolean">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState" editorFocused="true">
@@ -828,37 +512,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://FlipScipt/FlipScipt.structure/Note">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState" editorFocused="true">
-          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="651" />
-                <property name="caretXRelative" value="384" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_constraint" cellNumber="0" isInList="false">
-                  <node node_reference="r:3db85bc4-91aa-420f-be53-279340e8ab42(FlipScipt.structure)/9210699007504771292" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-          </memento>
-          <inspectorMemento currentlyEditedNode="r:3db85bc4-91aa-420f-be53-279340e8ab42(FlipScipt.structure)/9210699007504771292" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
+    <entry file="mps://node://FlipScipt/FlipScipt.structure/Note" />
     <entry file="mps://node://JSON/JSON.editor/JsonArray_Editor">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
@@ -1513,27 +1167,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://FlipScipt#9210699007504750426/main@generator/main">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-          </memento>
-          <inspectorMemento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
+    <entry file="mps://node://FlipScipt#9210699007504750426/main@generator/main" />
     <entry file="mps://node://FlipScipt#9210699007504750426/main@generator/&lt;no name&gt;[TemplateDeclaration]" />
     <entry file="mps://node://FlipScipt#9210699007504750426/main@generator/&lt;no name&gt;[TemplateDeclaration]" />
     <entry file="mps://node://FlipScipt#9210699007504750426/main@generator/&lt;no name&gt;[MappingConfiguration]" />
@@ -1674,38 +1308,7 @@
     </entry>
     <entry file="mps://node://FlipScipt#9210699007504750426/main@generator/&lt;no name&gt;[TemplateDeclaration]" />
     <entry file="mps://node://FlipScipt#9210699007504750426/main@generator/&lt;no name&gt;[TemplateDeclaration]" />
-    <entry file="mps://node://FlipScipt/FlipScipt.structure/Timing">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState" editorFocused="true">
-          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="75" />
-                <property name="caretXRelative" value="60" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="Constant_ueqr71_c0a" cellNumber="0" isInList="false">
-                  <node node_reference="r:3db85bc4-91aa-420f-be53-279340e8ab42(FlipScipt.structure)/9210699007504750443" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-          </memento>
-          <inspectorMemento currentlyEditedNode="r:3db85bc4-91aa-420f-be53-279340e8ab42(FlipScipt.structure)/9210699007504750443" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-            <enabledHints />
-          </inspectorMemento>
-          <node node_ref="r:3db85bc4-91aa-420f-be53-279340e8ab42(FlipScipt.structure)/9210699007504750443" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="mps://node://FlipScipt/FlipScipt.structure/Timing" />
     <entry file="mps://node://JSON/JSON.structure/JsonDocument">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState" editorFocused="true">
@@ -1770,38 +1373,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://FlipScipt/FlipScipt.structure/Phrase">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState" editorFocused="true">
-          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="99" />
-                <property name="caretXRelative" value="84" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="Constant_ueqr71_c0a" cellNumber="0" isInList="false">
-                  <node node_reference="r:3db85bc4-91aa-420f-be53-279340e8ab42(FlipScipt.structure)/9210699007504750442" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-          </memento>
-          <inspectorMemento currentlyEditedNode="r:3db85bc4-91aa-420f-be53-279340e8ab42(FlipScipt.structure)/9210699007504750442" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-            <enabledHints />
-          </inspectorMemento>
-          <node node_ref="r:3db85bc4-91aa-420f-be53-279340e8ab42(FlipScipt.structure)/9210699007504750442" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="mps://node://FlipScipt/FlipScipt.structure/Phrase" />
     <entry file="mps://node://JSON/JSON.structure/JsonTrue">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState" editorFocused="true">
@@ -1938,28 +1510,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://FlipScipt/FlipScipt.structure/Song">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
-          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-          </memento>
-          <inspectorMemento currentlyEditedNode="r:33da9b79-e277-406e-95bd-e5e74f38885a(main@generator)/1936581466847920570" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-            <enabledHints />
-          </inspectorMemento>
-          <node node_ref="r:b3acedd2-e764-4334-9932-c7455e7db354(main@generator)/1936581466847920570" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="mps://node://FlipScipt/FlipScipt.structure/Song" />
     <entry file="mps://node://FlipScript/FlipScript.editor/Phrase_Editor">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
@@ -2136,160 +1687,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="mps://node://Sandbox/Sandbox.songbox/Going Down The Road Feeling Bad">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-          </memento>
-          <inspectorMemento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://Sandbox/Sandbox.songbox/Bertha">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-          </memento>
-          <inspectorMemento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack />
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://Sandbox/Sandbox.songbox/null">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="183" />
-                <property name="caretXRelative" value="0" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_lyric" cellNumber="0" isInList="false">
-                  <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755862" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorMarkers>
-              <errorMarker text="" propertyCell="true" cellId="property_artist" cellNumber="0" isInList="false">
-                <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755860" />
-              </errorMarker>
-              <errorMarker text="" propertyCell="true" cellId="property_duration" cellNumber="0" isInList="false">
-                <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755860" />
-              </errorMarker>
-              <errorMarker text="" propertyCell="true" cellId="property_upper" cellNumber="0" isInList="false">
-                <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755861" />
-              </errorMarker>
-              <errorMarker text="" propertyCell="true" cellId="property_lower" cellNumber="0" isInList="false">
-                <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755861" />
-              </errorMarker>
-              <errorMarker text="" propertyCell="true" cellId="property_bars" cellNumber="0" isInList="false">
-                <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755862" />
-              </errorMarker>
-              <errorMarker text="" propertyCell="true" cellId="property_note" cellNumber="0" isInList="false">
-                <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755862" />
-              </errorMarker>
-              <errorMarker text="" propertyCell="true" cellId="property_repeat" cellNumber="0" isInList="false">
-                <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755862" />
-              </errorMarker>
-              <errorMarker text="" propertyCell="true" cellId="property_lyric" cellNumber="0" isInList="false">
-                <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/2675844503989755862" />
-              </errorMarker>
-            </errorMarkers>
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-          </memento>
-          <inspectorMemento currentlyEditedNode="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757075" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="364" />
-                <property name="caretXRelative" value="120" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_labelName" cellNumber="0" isInList="false">
-                  <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757076" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
-    <entry file="mps://node://FlipScript#2675844503989674220/main@generator/main">
-      <provider selected="true" editor-type-id="MPSFileEditor">
-        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
-          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="279" />
-                <property name="caretXRelative" value="0" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_name" cellNumber="0" isInList="false">
-                  <node node_reference="r:33da9b79-e277-406e-95bd-e5e74f38885a(main@generator)/2675844503989674221" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable>
-              <collapsedElement isCollapsed="false">
-                <cellIdElement cellId="refNodeList_dropAttrubuteRule" cellNumber="0" isInList="false">
-                  <node node_reference="r:33da9b79-e277-406e-95bd-e5e74f38885a(main@generator)/2675844503989674221" />
-                </cellIdElement>
-              </collapsedElement>
-            </foldable>
-            <restoreAlways />
-          </memento>
-          <inspectorMemento currentlyEditedNode="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757075" saveSessionState="false" viewPositionX="0" viewPositionY="0">
-            <selectionStack>
-              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
-                <property name="hasNonTrivialSelection" value="false" />
-                <property name="caretX" value="364" />
-                <property name="caretXRelative" value="120" />
-                <property name="sideSelectDirection" value="NONE" />
-                <cellInfo cellId="property_labelName" cellNumber="0" isInList="false">
-                  <node node_reference="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757076" />
-                </cellInfo>
-              </stackElement>
-            </selectionStack>
-            <errorMarkers />
-            <transactionalProperties />
-            <foldable />
-            <restoreAlways />
-            <enabledHints />
-          </inspectorMemento>
-        </state>
-      </provider>
-    </entry>
+    <entry file="mps://node://Sandbox/Sandbox.songbox/Going Down The Road Feeling Bad" />
+    <entry file="mps://node://Sandbox/Sandbox.songbox/Bertha" />
     <entry file="mps://node://FlipScript/FlipScript.structure/Song">
       <provider selected="true" editor-type-id="MPSFileEditor">
         <state class="jetbrains.mps.ide.editor.tabs.TabbedEditor$TabbedEditorState">
@@ -2329,6 +1728,76 @@
             <enabledHints />
           </inspectorMemento>
           <node node_ref="r:b19ff25e-324f-4ba0-88bd-00f0377d805e(FlipScript.editor)/9210699007504757018" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://Sandbox/Sandbox.songbox/null" />
+    <entry file="mps://node://Sandbox/Sandbox.songbox/&lt;no name&gt;[Song]" />
+    <entry file="mps://node://FlipScript#2675844503989674220/main@generator/main">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState" editorFocused="true">
+          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretX" value="135" />
+                <property name="caretXRelative" value="120" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="Constant_g6pxeq_a3a" cellNumber="0" isInList="false">
+                  <node node_reference="r:33da9b79-e277-406e-95bd-e5e74f38885a(main@generator)/2675844503989674221" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable>
+              <collapsedElement isCollapsed="false">
+                <cellIdElement cellId="refNodeList_dropAttrubuteRule" cellNumber="0" isInList="false">
+                  <node node_reference="r:33da9b79-e277-406e-95bd-e5e74f38885a(main@generator)/2675844503989674221" />
+                </cellIdElement>
+              </collapsedElement>
+            </foldable>
+            <restoreAlways />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:33da9b79-e277-406e-95bd-e5e74f38885a(main@generator)/2675844503989674221" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+            <enabledHints />
+          </inspectorMemento>
+        </state>
+      </provider>
+    </entry>
+    <entry file="mps://node://Sandbox/Sandbox.songbox/Fire on The Mountain">
+      <provider selected="true" editor-type-id="MPSFileEditor">
+        <state class="jetbrains.mps.ide.editor.BaseNodeEditor$BaseEditorState">
+          <memento saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack>
+              <stackElement className="jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection">
+                <property name="hasNonTrivialSelection" value="false" />
+                <property name="caretX" value="359" />
+                <property name="caretXRelative" value="232" />
+                <property name="sideSelectDirection" value="NONE" />
+                <cellInfo cellId="property_lyric" cellNumber="0" isInList="false">
+                  <node node_reference="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/8846541603256232787" />
+                </cellInfo>
+              </stackElement>
+            </selectionStack>
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+          </memento>
+          <inspectorMemento currentlyEditedNode="r:721b2359-b6cc-4e6c-84ec-be1ab7953517(Sandbox.songbox)/8846541603256232787" saveSessionState="false" viewPositionX="0" viewPositionY="0">
+            <selectionStack />
+            <errorMarkers />
+            <transactionalProperties />
+            <foldable />
+            <restoreAlways />
+            <enabledHints />
+          </inspectorMemento>
         </state>
       </provider>
     </entry>
